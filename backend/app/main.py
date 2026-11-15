@@ -1,6 +1,6 @@
 """Main FastAPI application entrypoint for AttritionPulse AI."""
 
-from app.api.v1.endpoints import router as api_v1_router
+from app.api.v1.endpoints import router as api_v1_router, upload_employees_csv
 from app.core.config import settings
 from app.db.session import Base, engine
 from fastapi import FastAPI
@@ -27,6 +27,9 @@ app.add_middleware(
 )
 
 app.include_router(api_v1_router)
+
+# Support legacy / direct upload path
+app.post("/employees/upload-csv", tags=["Data Ingestion"])(upload_employees_csv)
 
 @app.get("/", tags=["Health"])
 def health_check():
