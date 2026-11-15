@@ -5,7 +5,7 @@ import {
   Brain, Activity, ArrowUpRight, Search, Download,
   ChevronRight, Filter, Sparkles
 } from 'lucide-react'
-import api from '../api/client'
+import api, { API_BASE_URL } from '../api/client'
 
 function StatCard({ icon: Icon, label, value, sub, color, active, onClick }: any) {
   return (
@@ -306,7 +306,7 @@ export default function Dashboard() {
                     <td className="py-3 px-4 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <a
-                          href={`http://localhost:8000/api/v1/employees/${emp.id}/report/download?format=md`}
+                          href={`${API_BASE_URL}/api/v1/employees/${emp.id}/report/download?format=md`}
                           target="_blank"
                           rel="noreferrer"
                           className="px-2 py-1 bg-slate-100 dark:bg-gray-800 hover:bg-slate-200 dark:hover:bg-gray-700 rounded text-[11px] font-semibold text-slate-600 dark:text-gray-300 transition-colors inline-flex items-center gap-1"

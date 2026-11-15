@@ -5,7 +5,7 @@ import {
   Calendar, Briefcase, MapPin, Activity, Download,
   Printer, FileText, FileSpreadsheet
 } from 'lucide-react'
-import api from '../api/client'
+import api, { API_BASE_URL } from '../api/client'
 import { Employee, MonthlySnapshot, PredictionResult, SurvivalResult } from '../types'
 
 export default function EmployeeProfile() {
@@ -35,7 +35,7 @@ export default function EmployeeProfile() {
   }, [empId])
 
   const downloadReport = (format: 'md' | 'json' | 'csv') => {
-    window.open(`http://localhost:8000/api/v1/employees/${empId}/report/download?format=${format}`, '_blank')
+    window.open(`${API_BASE_URL}/api/v1/employees/${empId}/report/download?format=${format}`, '_blank')
   }
 
   const printDossier = () => {

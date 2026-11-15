@@ -4,7 +4,7 @@ import {
   CheckCircle, Activity, Sparkles, TrendingDown,
   Layers, Clock, AlertTriangle, ArrowUpRight
 } from 'lucide-react'
-import api from '../api/client'
+import api, { API_BASE_URL } from '../api/client'
 
 export default function Reports() {
   const [activeTab, setActiveTab] = useState<'hypothesis' | 'ml' | 'survival' | 'methodology'>('hypothesis')
@@ -35,7 +35,7 @@ export default function Reports() {
   }, [])
 
   const downloadFile = (filename: string) => {
-    window.open(`http://localhost:8000/api/v1/reports/download/${filename}`, '_blank')
+    window.open(`${API_BASE_URL}/api/v1/reports/download/${filename}`, '_blank')
   }
 
   const formatFactorName = (name: string) => {

@@ -26,7 +26,7 @@ export default function Chat() {
     setMessages(m => [...m, { role: 'user', text: q }])
     setLoading(true)
     try {
-      const res = await api.post('/chat/ask/' + (empId || '1'), null, { params: { question: q } })
+      const res = await api.post('/api/v1/chat/ask/' + (empId || '1'), null, { params: { question: q } })
       setMessages(m => [...m, { role: 'ai', text: res.data.recommendation }])
     } catch {
       setMessages(m => [...m, { role: 'ai', text: 'Could not reach the AI backend. Make sure the FastAPI server is running.' }])

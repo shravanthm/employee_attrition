@@ -404,17 +404,17 @@ async def upload_employees_csv(file: UploadFile = File(...), db: Session = Depen
 
 
 def _get_reports_dir():
-    # Resolve repository root reports folder
-    p = os.path.abspath(__file__)
-    for _ in range(5):
-        p = os.path.dirname(p)
-    rep_path = os.path.join(p, "reports")
-    if os.path.exists(rep_path):
-        return rep_path
-    alt_path = os.path.join(os.getcwd(), "reports")
-    if os.path.exists(alt_path):
-        return alt_path
-    return rep_path
+    # Resolve repository or service reports folder
+    candidates = [
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "reports"),
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "reports"),
+        os.path.join(os.getcwd(), "reports"),
+        os.path.join(os.getcwd(), "backend", "reports"),
+    ]
+    for c in candidates:
+        if os.path.exists(c):
+            return os.path.abspath(c)
+    return os.path.join(os.getcwd(), "reports")
 
 
 @router.get("/reports/data", tags=["Reports"])
@@ -467,5 +467,76 @@ def download_report_file(filename: str):
     if not os.path.exists(path):
         raise HTTPException(status_code=404, detail="Report file not found")
     return FileResponse(path, filename=filename, media_type="application/octet-stream")
+
+
+@router.post("/chat/ask/{employee_id}", tags=["Chat"])
+def ask_chat(
+    employee_id: int,
+    question: str = Query(...),
+    db: Session = Depends(get_db)
+):
+    """AI Retention Assistant answering questions with Gemini or analytical reasoning."""
+    employee = db.query(Employee).filter(Employee.id == employee_id).first()
+    if not employee:
+        employee = db.query(Employee).first()
+
+    snapshots = (
+        db.query(EmployeeMonthlySnapshot)
+        .filter(EmployeeMonthlySnapshot.employee_id == employee.id if employee else 1)
+        .order_by(EmployeeMonthlySnapshot.snapshot_month.desc())
+        .limit(3)
+        .all() if employee else []
+    )
+    latest_snap = snapshots[0] if snapshots else None
+
+    top_risk = (
+        db.query(Employee)
+        .filter(Employee.risk_tier == "High")
+        .limit(5)
+        .all()
+    )
+    top_context = ", ".join([f"#{e.id} ({e.employee_code} in {e.department})" for e in top_risk]) or "None identified"
+
+    from app.core.config import settings
+    if settings.GEMINI_API_KEY:
+        try:
+            import json
+            from urllib.request import Request, urlopen
+            prompt = (
+                f"You are an HR retention AI specialist for AttritionPulse AI.\n"
+                f"Employee ID: {employee.id if employee else 'N/A'}, Code: {employee.employee_code if employee else 'N/A'}, Dept: {employee.department if employee else 'N/A'}.\n"
+                f"Risk Tier: {employee.risk_tier if employee else 'N/A'}, 90-Day Probability: {getattr(employee, 'attrition_probability', 0.0) or 0.0:.1%}.\n"
+                f"Top High-Risk Employees: {top_context}.\n"
+                f"HR Question: {question}\n"
+                f"Provide a concise, practical, actionable retention recommendation in 2-3 sentences. Plain text only."
+            )
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{settings.GEMINI_MODEL}:generateContent?key={settings.GEMINI_API_KEY}"
+            body = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode("utf-8")
+            req = Request(url, data=body, headers={"Content-Type": "application/json"})
+            with urlopen(req, timeout=10) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+                return {"recommendation": text}
+        except Exception:
+            pass
+
+    if employee:
+        prob = employee.attrition_probability or 0.25
+        tier = employee.risk_tier or "Moderate"
+        overtime = latest_snap.overtime_hours if latest_snap else 12.0
+        sat = latest_snap.job_satisfaction_score if latest_snap else 3.0
+        rec = (
+            f"Employee #{employee.id} ({employee.employee_code}, {employee.department}) currently displays {tier} flight risk "
+            f"({prob:.1%} 90-day probability) with {overtime:.1f} monthly overtime hours and satisfaction score of {sat:.1f}/5. "
+            f"Recommended intervention: schedule a retention stay interview, review workload distribution to curb overtime burnout, "
+            f"and evaluate role progression milestones."
+        )
+    else:
+        rec = (
+            f"Workforce retention analysis: {len(top_risk)} employees are currently flagged as High Risk ({top_context}). "
+            f"Focus manager 1-on-1s on addressing overtime surges, career development discussions, and immediate flight risk mitigation."
+        )
+    return {"recommendation": rec}
+
 
 

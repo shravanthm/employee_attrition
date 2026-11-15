@@ -25,7 +25,7 @@ export default function Upload() {
     form.append('file', file)
 
     try {
-      const res = await api.post('/employees/upload-csv', form, {
+      const res = await api.post('/api/v1/employees/upload-csv', form, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
       setResult(res.data)

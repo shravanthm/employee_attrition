@@ -64,5 +64,6 @@ Thumbs.db
 # Project specific
 *.log
 *.db
-backend/data/
+backend/data/*.db
+!backend/data/synthetic/**
 .pytest_cache/
