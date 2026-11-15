@@ -1,0 +1,301 @@
+id,employee_code,department,job_role,hire_date,employment_status
+1,EMP-0001,Research & Development,Manager,2020-08-21,Terminated
+2,EMP-0002,Research & Development,Research Scientist,2020-10-11,Terminated
+3,EMP-0003,Research & Development,Manager,2019-08-13,Active
+4,EMP-0004,Research & Development,Research Scientist,2019-09-11,Terminated
+5,EMP-0005,Sales,Sales Representative,2023-07-15,Terminated
+6,EMP-0006,Research & Development,Laboratory Technician,2021-09-06,Active
+7,EMP-0007,Research & Development,Healthcare Representative,2019-04-04,Terminated
+8,EMP-0008,Research & Development,Manufacturing Director,2018-03-11,Terminated
+9,EMP-0009,Human Resources,Human Resources,2022-05-26,Terminated
+10,EMP-0010,Research & Development,Manufacturing Director,2023-01-27,Terminated
+11,EMP-0011,Research & Development,Research Scientist,2019-07-29,Terminated
+12,EMP-0012,Research & Development,Laboratory Technician,2021-07-23,Terminated
+13,EMP-0013,Research & Development,Research Scientist,2021-11-19,Active
+14,EMP-0014,Sales,Sales Representative,2019-12-18,Active
+15,EMP-0015,Sales,Sales Representative,2023-12-26,Terminated
+16,EMP-0016,Research & Development,Manufacturing Director,2017-01-02,Terminated
+17,EMP-0017,Sales,Sales Executive,2016-12-09,Active
+18,EMP-0018,Sales,Manager,2020-02-24,Active
+19,EMP-0019,Research & Development,Laboratory Technician,2023-12-23,Active
+20,EMP-0020,Human Resources,Human Resources,2018-05-12,Active
+21,EMP-0021,Sales,Sales Representative,2023-03-29,Active
+22,EMP-0022,Sales,Sales Executive,2018-10-29,Active
+23,EMP-0023,Sales,Manager,2018-09-08,Terminated
+24,EMP-0024,Research & Development,Research Scientist,2019-05-18,Active
+25,EMP-0025,Research & Development,Healthcare Representative,2022-03-11,Active
+26,EMP-0026,Sales,Manager,2022-10-19,Terminated
+27,EMP-0027,Research & Development,Manufacturing Director,2022-01-28,Active
+28,EMP-0028,Research & Development,Healthcare Representative,2020-02-12,Active
+29,EMP-0029,Research & Development,Manager,2018-12-03,Active
+30,EMP-0030,Research & Development,Laboratory Technician,2017-07-15,Terminated
+31,EMP-0031,Sales,Sales Representative,2021-08-09,Terminated
+32,EMP-0032,Research & Development,Healthcare Representative,2021-09-10,Terminated
+33,EMP-0033,Research & Development,Manager,2023-10-13,Terminated
+34,EMP-0034,Sales,Sales Executive,2021-05-11,Active
+35,EMP-0035,Human Resources,Human Resources,2023-10-25,Terminated
+36,EMP-0036,Sales,Manager,2022-08-25,Active
+37,EMP-0037,Sales,Manager,2017-04-26,Terminated
+38,EMP-0038,Sales,Manager,2017-03-25,Terminated
+39,EMP-0039,Sales,Sales Executive,2024-01-08,Terminated
+40,EMP-0040,Sales,Sales Representative,2022-02-22,Active
+41,EMP-0041,Research & Development,Manager,2023-09-30,Terminated
+42,EMP-0042,Research & Development,Laboratory Technician,2017-01-11,Active
+43,EMP-0043,Research & Development,Manager,2023-02-27,Terminated
+44,EMP-0044,Research & Development,Manufacturing Director,2019-10-09,Active
+45,EMP-0045,Research & Development,Research Scientist,2022-02-13,Active
+46,EMP-0046,Research & Development,Healthcare Representative,2022-02-06,Terminated
+47,EMP-0047,Research & Development,Manager,2020-01-15,Terminated
+48,EMP-0048,Research & Development,Laboratory Technician,2019-07-20,Terminated
+49,EMP-0049,Research & Development,Healthcare Representative,2018-02-03,Terminated
+50,EMP-0050,Research & Development,Healthcare Representative,2023-04-10,Terminated
+51,EMP-0051,Research & Development,Manufacturing Director,2017-02-26,Active
+52,EMP-0052,Human Resources,Manager,2020-08-10,Terminated
+53,EMP-0053,Research & Development,Laboratory Technician,2021-05-21,Terminated
+54,EMP-0054,Research & Development,Laboratory Technician,2024-02-02,Active
+55,EMP-0055,Research & Development,Healthcare Representative,2020-01-08,Active
+56,EMP-0056,Sales,Manager,2019-08-07,Active
+57,EMP-0057,Research & Development,Laboratory Technician,2022-12-30,Active
+58,EMP-0058,Human Resources,Manager,2017-12-10,Terminated
+59,EMP-0059,Research & Development,Research Scientist,2022-02-27,Active
+60,EMP-0060,Sales,Sales Executive,2022-02-27,Terminated
+61,EMP-0061,Sales,Sales Representative,2018-10-22,Active
+62,EMP-0062,Research & Development,Research Scientist,2021-02-26,Active
+63,EMP-0063,Research & Development,Manufacturing Director,2018-02-15,Terminated
+64,EMP-0064,Research & Development,Laboratory Technician,2019-05-13,Terminated
+65,EMP-0065,Research & Development,Healthcare Representative,2019-05-20,Terminated
+66,EMP-0066,Research & Development,Manufacturing Director,2021-01-18,Active
+67,EMP-0067,Research & Development,Manager,2023-04-18,Terminated
+68,EMP-0068,Human Resources,Manager,2019-04-06,Terminated
+69,EMP-0069,Research & Development,Laboratory Technician,2018-05-25,Active
+70,EMP-0070,Research & Development,Research Scientist,2018-11-25,Active
+71,EMP-0071,Sales,Sales Executive,2021-08-27,Active
+72,EMP-0072,Sales,Manager,2022-02-22,Active
+73,EMP-0073,Research & Development,Laboratory Technician,2021-02-20,Terminated
+74,EMP-0074,Research & Development,Research Scientist,2021-11-03,Active
+75,EMP-0075,Sales,Sales Executive,2018-09-02,Active
+76,EMP-0076,Research & Development,Manufacturing Director,2023-05-01,Terminated
+77,EMP-0077,Research & Development,Manager,2022-12-17,Terminated
+78,EMP-0078,Sales,Sales Executive,2020-08-20,Active
+79,EMP-0079,Sales,Sales Executive,2017-11-21,Terminated
+80,EMP-0080,Research & Development,Manager,2018-05-06,Active
+81,EMP-0081,Research & Development,Laboratory Technician,2017-07-10,Active
+82,EMP-0082,Research & Development,Manager,2020-06-14,Terminated
+83,EMP-0083,Research & Development,Healthcare Representative,2020-02-11,Terminated
+84,EMP-0084,Sales,Sales Executive,2022-04-18,Active
+85,EMP-0085,Research & Development,Research Scientist,2021-09-07,Active
+86,EMP-0086,Human Resources,Manager,2020-03-04,Terminated
+87,EMP-0087,Sales,Sales Representative,2019-07-03,Active
+88,EMP-0088,Research & Development,Research Scientist,2020-04-20,Terminated
+89,EMP-0089,Sales,Manager,2020-12-03,Active
+90,EMP-0090,Human Resources,Human Resources,2020-06-26,Terminated
+91,EMP-0091,Sales,Manager,2018-12-09,Active
+92,EMP-0092,Sales,Sales Representative,2020-06-29,Terminated
+93,EMP-0093,Research & Development,Laboratory Technician,2020-11-04,Terminated
+94,EMP-0094,Research & Development,Manufacturing Director,2021-09-07,Terminated
+95,EMP-0095,Research & Development,Manager,2021-02-03,Active
+96,EMP-0096,Sales,Sales Representative,2020-05-04,Terminated
+97,EMP-0097,Sales,Sales Representative,2022-09-21,Active
+98,EMP-0098,Research & Development,Manufacturing Director,2017-04-30,Terminated
+99,EMP-0099,Research & Development,Manager,2018-09-04,Active
+100,EMP-0100,Research & Development,Research Scientist,2021-07-26,Active
+101,EMP-0101,Sales,Sales Representative,2024-01-16,Active
+102,EMP-0102,Human Resources,Human Resources,2021-09-20,Active
+103,EMP-0103,Sales,Manager,2022-08-05,Active
+104,EMP-0104,Sales,Manager,2017-04-26,Terminated
+105,EMP-0105,Research & Development,Laboratory Technician,2022-06-17,Active
+106,EMP-0106,Research & Development,Healthcare Representative,2019-02-13,Active
+107,EMP-0107,Research & Development,Research Scientist,2017-08-19,Active
+108,EMP-0108,Research & Development,Manager,2023-03-04,Terminated
+109,EMP-0109,Research & Development,Laboratory Technician,2022-06-26,Terminated
+110,EMP-0110,Research & Development,Manager,2019-04-19,Active
+111,EMP-0111,Research & Development,Laboratory Technician,2023-06-09,Terminated
+112,EMP-0112,Research & Development,Laboratory Technician,2020-05-14,Active
+113,EMP-0113,Sales,Sales Representative,2022-10-21,Terminated
+114,EMP-0114,Sales,Sales Representative,2018-07-13,Terminated
+115,EMP-0115,Research & Development,Laboratory Technician,2019-05-28,Active
+116,EMP-0116,Research & Development,Manager,2017-04-19,Terminated
+117,EMP-0117,Sales,Sales Executive,2017-12-27,Active
+118,EMP-0118,Research & Development,Healthcare Representative,2020-08-30,Terminated
+119,EMP-0119,Research & Development,Laboratory Technician,2023-01-31,Terminated
+120,EMP-0120,Research & Development,Research Scientist,2017-11-11,Terminated
+121,EMP-0121,Research & Development,Manufacturing Director,2020-10-22,Active
+122,EMP-0122,Sales,Manager,2018-01-09,Terminated
+123,EMP-0123,Research & Development,Research Scientist,2018-12-22,Active
+124,EMP-0124,Research & Development,Manufacturing Director,2023-12-16,Active
+125,EMP-0125,Human Resources,Manager,2022-07-25,Terminated
+126,EMP-0126,Human Resources,Manager,2017-10-07,Active
+127,EMP-0127,Research & Development,Manufacturing Director,2023-10-25,Terminated
+128,EMP-0128,Research & Development,Manager,2018-02-09,Terminated
+129,EMP-0129,Research & Development,Manager,2020-08-03,Active
+130,EMP-0130,Research & Development,Laboratory Technician,2021-01-18,Active
+131,EMP-0131,Research & Development,Manufacturing Director,2023-11-20,Active
+132,EMP-0132,Research & Development,Manager,2019-03-31,Active
+133,EMP-0133,Research & Development,Manager,2023-01-08,Active
+134,EMP-0134,Research & Development,Research Scientist,2022-08-04,Active
+135,EMP-0135,Sales,Sales Executive,2021-05-15,Active
+136,EMP-0136,Research & Development,Healthcare Representative,2019-12-05,Active
+137,EMP-0137,Human Resources,Human Resources,2022-12-22,Active
+138,EMP-0138,Research & Development,Laboratory Technician,2021-05-08,Active
+139,EMP-0139,Sales,Manager,2016-12-27,Terminated
+140,EMP-0140,Research & Development,Laboratory Technician,2023-03-19,Active
+141,EMP-0141,Research & Development,Laboratory Technician,2018-11-16,Active
+142,EMP-0142,Sales,Sales Executive,2023-08-04,Active
+143,EMP-0143,Research & Development,Research Scientist,2022-03-06,Terminated
+144,EMP-0144,Sales,Manager,2018-04-11,Active
+145,EMP-0145,Research & Development,Manufacturing Director,2020-06-08,Active
+146,EMP-0146,Sales,Sales Representative,2018-12-15,Active
+147,EMP-0147,Research & Development,Manager,2018-04-18,Active
+148,EMP-0148,Sales,Sales Executive,2022-04-11,Terminated
+149,EMP-0149,Sales,Sales Representative,2017-04-09,Active
+150,EMP-0150,Sales,Sales Executive,2019-03-17,Active
+151,EMP-0151,Research & Development,Research Scientist,2019-08-25,Terminated
+152,EMP-0152,Research & Development,Research Scientist,2016-10-24,Active
+153,EMP-0153,Human Resources,Human Resources,2020-07-30,Terminated
+154,EMP-0154,Research & Development,Manager,2021-07-26,Terminated
+155,EMP-0155,Research & Development,Research Scientist,2018-10-14,Terminated
+156,EMP-0156,Research & Development,Research Scientist,2021-11-08,Terminated
+157,EMP-0157,Research & Development,Research Scientist,2023-01-14,Active
+158,EMP-0158,Research & Development,Healthcare Representative,2019-05-17,Active
+159,EMP-0159,Sales,Sales Representative,2020-01-11,Terminated
+160,EMP-0160,Research & Development,Manager,2021-05-22,Terminated
+161,EMP-0161,Human Resources,Human Resources,2019-04-12,Terminated
+162,EMP-0162,Research & Development,Manufacturing Director,2018-06-26,Terminated
+163,EMP-0163,Sales,Manager,2023-09-23,Active
+164,EMP-0164,Human Resources,Manager,2019-10-17,Terminated
+165,EMP-0165,Human Resources,Human Resources,2019-06-11,Terminated
+166,EMP-0166,Human Resources,Manager,2018-10-17,Terminated
+167,EMP-0167,Research & Development,Healthcare Representative,2023-02-25,Terminated
+168,EMP-0168,Human Resources,Human Resources,2023-07-31,Terminated
+169,EMP-0169,Research & Development,Research Scientist,2021-05-03,Terminated
+170,EMP-0170,Human Resources,Human Resources,2017-04-08,Active
+171,EMP-0171,Sales,Manager,2021-11-22,Active
+172,EMP-0172,Research & Development,Manufacturing Director,2020-10-12,Terminated
+173,EMP-0173,Sales,Sales Executive,2017-02-07,Terminated
+174,EMP-0174,Research & Development,Manager,2020-01-25,Active
+175,EMP-0175,Research & Development,Manufacturing Director,2018-02-27,Active
+176,EMP-0176,Sales,Manager,2022-08-10,Terminated
+177,EMP-0177,Research & Development,Laboratory Technician,2019-05-27,Active
+178,EMP-0178,Research & Development,Manager,2020-08-29,Terminated
+179,EMP-0179,Research & Development,Healthcare Representative,2017-08-01,Active
+180,EMP-0180,Research & Development,Research Scientist,2017-12-06,Active
+181,EMP-0181,Human Resources,Manager,2017-10-14,Active
+182,EMP-0182,Research & Development,Laboratory Technician,2023-09-01,Active
+183,EMP-0183,Research & Development,Manufacturing Director,2020-05-08,Terminated
+184,EMP-0184,Sales,Sales Representative,2020-06-03,Active
+185,EMP-0185,Human Resources,Human Resources,2022-05-10,Active
+186,EMP-0186,Research & Development,Research Scientist,2021-04-27,Terminated
+187,EMP-0187,Research & Development,Laboratory Technician,2017-11-27,Terminated
+188,EMP-0188,Research & Development,Healthcare Representative,2021-06-03,Active
+189,EMP-0189,Research & Development,Healthcare Representative,2023-05-31,Active
+190,EMP-0190,Research & Development,Manufacturing Director,2021-12-24,Terminated
+191,EMP-0191,Research & Development,Manufacturing Director,2017-12-10,Active
+192,EMP-0192,Sales,Manager,2022-03-01,Terminated
+193,EMP-0193,Sales,Sales Representative,2023-10-12,Active
+194,EMP-0194,Research & Development,Manager,2020-10-02,Terminated
+195,EMP-0195,Research & Development,Manufacturing Director,2023-12-03,Active
+196,EMP-0196,Research & Development,Laboratory Technician,2022-05-04,Terminated
+197,EMP-0197,Research & Development,Healthcare Representative,2020-09-19,Terminated
+198,EMP-0198,Research & Development,Laboratory Technician,2019-04-02,Active
+199,EMP-0199,Research & Development,Healthcare Representative,2022-07-07,Active
+200,EMP-0200,Research & Development,Healthcare Representative,2019-10-18,Active
+201,EMP-0201,Sales,Sales Representative,2020-01-19,Active
+202,EMP-0202,Sales,Sales Representative,2022-04-29,Active
+203,EMP-0203,Research & Development,Manufacturing Director,2019-12-20,Terminated
+204,EMP-0204,Research & Development,Manager,2021-05-31,Active
+205,EMP-0205,Research & Development,Manufacturing Director,2019-10-11,Active
+206,EMP-0206,Research & Development,Manager,2020-03-27,Active
+207,EMP-0207,Research & Development,Healthcare Representative,2020-05-30,Active
+208,EMP-0208,Research & Development,Manufacturing Director,2018-09-19,Terminated
+209,EMP-0209,Research & Development,Manufacturing Director,2020-03-16,Active
+210,EMP-0210,Sales,Manager,2024-02-26,Active
+211,EMP-0211,Research & Development,Manufacturing Director,2023-05-08,Active
+212,EMP-0212,Research & Development,Manager,2018-07-28,Terminated
+213,EMP-0213,Sales,Sales Representative,2018-02-21,Active
+214,EMP-0214,Sales,Sales Representative,2019-09-19,Active
+215,EMP-0215,Human Resources,Human Resources,2020-01-19,Active
+216,EMP-0216,Human Resources,Human Resources,2017-11-14,Terminated
+217,EMP-0217,Human Resources,Human Resources,2020-04-25,Active
+218,EMP-0218,Research & Development,Healthcare Representative,2019-11-01,Terminated
+219,EMP-0219,Human Resources,Manager,2017-07-18,Active
+220,EMP-0220,Research & Development,Research Scientist,2017-06-16,Active
+221,EMP-0221,Research & Development,Laboratory Technician,2019-05-10,Active
+222,EMP-0222,Sales,Sales Executive,2023-09-20,Active
+223,EMP-0223,Human Resources,Human Resources,2021-08-19,Active
+224,EMP-0224,Sales,Manager,2017-03-17,Active
+225,EMP-0225,Research & Development,Laboratory Technician,2023-06-17,Terminated
+226,EMP-0226,Research & Development,Healthcare Representative,2019-10-21,Terminated
+227,EMP-0227,Human Resources,Human Resources,2023-12-07,Active
+228,EMP-0228,Research & Development,Healthcare Representative,2023-09-26,Terminated
+229,EMP-0229,Research & Development,Healthcare Representative,2019-01-06,Terminated
+230,EMP-0230,Human Resources,Human Resources,2020-04-12,Terminated
+231,EMP-0231,Research & Development,Healthcare Representative,2020-01-22,Active
+232,EMP-0232,Research & Development,Manufacturing Director,2017-07-01,Terminated
+233,EMP-0233,Sales,Manager,2022-02-19,Terminated
+234,EMP-0234,Research & Development,Manufacturing Director,2023-04-07,Terminated
+235,EMP-0235,Sales,Sales Executive,2021-01-13,Terminated
+236,EMP-0236,Sales,Manager,2017-07-29,Terminated
+237,EMP-0237,Research & Development,Manufacturing Director,2022-08-21,Terminated
+238,EMP-0238,Research & Development,Research Scientist,2017-04-30,Active
+239,EMP-0239,Research & Development,Manufacturing Director,2023-04-17,Terminated
+240,EMP-0240,Sales,Manager,2021-08-10,Terminated
+241,EMP-0241,Research & Development,Manufacturing Director,2017-06-22,Terminated
+242,EMP-0242,Human Resources,Human Resources,2020-03-31,Active
+243,EMP-0243,Research & Development,Manufacturing Director,2020-05-10,Terminated
+244,EMP-0244,Sales,Sales Representative,2021-10-01,Active
+245,EMP-0245,Research & Development,Manufacturing Director,2023-05-15,Active
+246,EMP-0246,Research & Development,Research Scientist,2017-01-13,Terminated
+247,EMP-0247,Research & Development,Healthcare Representative,2017-06-26,Active
+248,EMP-0248,Research & Development,Manufacturing Director,2021-07-31,Active
+249,EMP-0249,Research & Development,Manager,2022-09-09,Active
+250,EMP-0250,Research & Development,Healthcare Representative,2023-01-15,Terminated
+251,EMP-0251,Sales,Sales Representative,2017-08-22,Terminated
+252,EMP-0252,Research & Development,Manufacturing Director,2023-04-18,Terminated
+253,EMP-0253,Sales,Sales Representative,2023-11-16,Active
+254,EMP-0254,Human Resources,Human Resources,2022-10-07,Active
+255,EMP-0255,Sales,Sales Executive,2022-08-02,Active
+256,EMP-0256,Sales,Sales Executive,2022-04-06,Active
+257,EMP-0257,Research & Development,Manager,2023-11-02,Active
+258,EMP-0258,Research & Development,Healthcare Representative,2023-12-24,Terminated
+259,EMP-0259,Research & Development,Healthcare Representative,2017-01-31,Active
+260,EMP-0260,Sales,Manager,2023-01-25,Active
+261,EMP-0261,Research & Development,Manufacturing Director,2020-08-26,Terminated
+262,EMP-0262,Sales,Sales Representative,2020-02-22,Terminated
+263,EMP-0263,Sales,Manager,2023-05-03,Active
+264,EMP-0264,Research & Development,Research Scientist,2022-11-10,Active
+265,EMP-0265,Human Resources,Human Resources,2020-09-26,Terminated
+266,EMP-0266,Research & Development,Research Scientist,2020-08-05,Active
+267,EMP-0267,Research & Development,Laboratory Technician,2023-07-15,Active
+268,EMP-0268,Research & Development,Research Scientist,2020-08-18,Active
+269,EMP-0269,Human Resources,Human Resources,2018-02-05,Terminated
+270,EMP-0270,Sales,Sales Executive,2018-05-01,Active
+271,EMP-0271,Research & Development,Laboratory Technician,2023-06-04,Active
+272,EMP-0272,Research & Development,Manager,2021-07-16,Active
+273,EMP-0273,Research & Development,Manufacturing Director,2019-01-22,Active
+274,EMP-0274,Sales,Sales Executive,2023-09-27,Active
+275,EMP-0275,Research & Development,Laboratory Technician,2023-04-30,Terminated
+276,EMP-0276,Research & Development,Research Scientist,2023-04-30,Active
+277,EMP-0277,Research & Development,Manager,2023-11-19,Active
+278,EMP-0278,Research & Development,Laboratory Technician,2022-01-10,Active
+279,EMP-0279,Research & Development,Research Scientist,2021-05-01,Active
+280,EMP-0280,Sales,Manager,2022-10-25,Active
+281,EMP-0281,Research & Development,Manufacturing Director,2019-02-14,Terminated
+282,EMP-0282,Research & Development,Manufacturing Director,2022-05-05,Terminated
+283,EMP-0283,Research & Development,Research Scientist,2019-12-13,Terminated
+284,EMP-0284,Sales,Sales Representative,2017-09-10,Active
+285,EMP-0285,Research & Development,Research Scientist,2017-08-20,Active
+286,EMP-0286,Research & Development,Manufacturing Director,2019-05-13,Active
+287,EMP-0287,Research & Development,Research Scientist,2016-11-16,Active
+288,EMP-0288,Research & Development,Healthcare Representative,2020-09-30,Active
+289,EMP-0289,Sales,Manager,2021-12-18,Terminated
+290,EMP-0290,Research & Development,Healthcare Representative,2020-11-30,Active
+291,EMP-0291,Research & Development,Research Scientist,2017-05-15,Terminated
+292,EMP-0292,Sales,Sales Representative,2018-09-21,Active
+293,EMP-0293,Research & Development,Manufacturing Director,2017-01-18,Active
+294,EMP-0294,Sales,Manager,2018-12-31,Active
+295,EMP-0295,Research & Development,Manufacturing Director,2019-11-26,Active
+296,EMP-0296,Research & Development,Manufacturing Director,2022-10-21,Active
+297,EMP-0297,Sales,Sales Executive,2018-06-25,Active
+298,EMP-0298,Sales,Sales Representative,2020-08-11,Active
+299,EMP-0299,Research & Development,Healthcare Representative,2023-05-17,Active
+300,EMP-0300,Sales,Sales Executive,2023-01-03,Active
