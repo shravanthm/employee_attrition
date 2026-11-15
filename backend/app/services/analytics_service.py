@@ -45,10 +45,90 @@ def get_survival_engine() -> AttritionSurvivalEngine:
 
 class AnalyticsService:
     @staticmethod
+    def get_at_risk_employees(db: Session, tier: str = None, department: str = None, limit: int = 50) -> list[dict[str, Any]]:
+        """Identify and rank employees by flight risk and deterioration telemetry."""
+        from sqlalchemy import desc
+        from app.models.entities import EmployeeMonthlySnapshot
+
+        employees = db.query(Employee)
+        if department:
+            employees = employees.filter(Employee.department == department)
+        employees = employees.all()
+
+        results = []
+        for emp in employees:
+            latest_snap = db.query(EmployeeMonthlySnapshot).filter(
+                EmployeeMonthlySnapshot.employee_id == emp.id
+            ).order_by(desc(EmployeeMonthlySnapshot.snapshot_month)).first()
+
+            if not latest_snap:
+                continue
+
+            fdi = float(latest_snap.factor_deterioration_index or 0.0)
+            ot = float(latest_snap.overtime_hours or 0.0)
+            js = float(latest_snap.job_satisfaction_score or 3.0)
+
+            base_risk = 0.10
+            if fdi > 0.15:
+                base_risk += 0.55 + (fdi * 0.5)
+            elif fdi > 0.05:
+                base_risk += 0.30 + (fdi * 0.4)
+            elif fdi > 0.0:
+                base_risk += 0.15
+
+            if ot > 14.0:
+                base_risk += 0.15
+            elif ot > 10.0:
+                base_risk += 0.08
+
+            if js < 2.8:
+                base_risk += 0.12
+            elif js < 3.2:
+                base_risk += 0.05
+
+            prob = min(max(round(base_risk, 3), 0.05), 0.98)
+            if prob >= 0.65 or fdi >= 0.20:
+                cat = "High"
+            elif prob >= 0.35 or fdi >= 0.08:
+                cat = "Moderate"
+            else:
+                cat = "Low"
+
+            if tier and tier.lower() != "all" and cat.lower() != tier.lower():
+                continue
+
+            driver = "Normal Baseline"
+            if fdi > 0.18:
+                driver = f"Distress Velocity (FDI +{fdi:.2f})"
+            elif ot > 12.0:
+                driver = f"Overtime Escalation ({ot:.1f} hrs/mo)"
+            elif js < 3.0:
+                driver = f"Satisfaction Drop ({js:.1f}/5.0)"
+            elif (latest_snap.absence_rate or 0) > 5.0:
+                driver = f"Absenteeism Spike ({latest_snap.absence_rate:.1f}%)"
+
+            results.append({
+                "id": emp.id,
+                "employee_code": emp.employee_code,
+                "department": emp.department,
+                "job_role": emp.job_role,
+                "risk_probability": prob,
+                "risk_category": cat,
+                "factor_deterioration_index": round(fdi, 3),
+                "overtime_hours": ot,
+                "job_satisfaction_score": js,
+                "primary_driver": driver,
+                "employment_status": emp.employment_status
+            })
+
+        results.sort(key=lambda x: x["risk_probability"], reverse=True)
+        return results[:limit]
+
+    @staticmethod
     def get_dashboard_metrics(db: Session) -> dict[str, Any]:
         total_emps = db.query(Employee).count()
         active_emps = db.query(Employee).filter(Employee.employment_status == "Active").count()
-        
+
         emp_csv = os.path.join(SYNTHETIC_DIR, "employees.csv")
         if total_emps == 0 and os.path.exists(emp_csv):
             df_emps = pd.read_csv(emp_csv)
@@ -59,14 +139,26 @@ class AnalyticsService:
             dept_dist = {}
             for dept, count in db.query(Employee.department, Employee.id).all():
                 dept_dist[dept] = dept_dist.get(dept, 0) + 1
-                
+
+        all_evaluated = AnalyticsService.get_at_risk_employees(db, limit=2000)
+        if all_evaluated:
+            high_cnt = sum(1 for e in all_evaluated if e["risk_category"] == "High")
+            mod_cnt = sum(1 for e in all_evaluated if e["risk_category"] == "Moderate")
+            low_cnt = sum(1 for e in all_evaluated if e["risk_category"] == "Low")
+            avg_fdi = round(sum(e["factor_deterioration_index"] for e in all_evaluated) / len(all_evaluated), 3)
+        else:
+            high_cnt = int(total_emps * 0.16)
+            mod_cnt = int(total_emps * 0.28)
+            low_cnt = int(total_emps * 0.56)
+            avg_fdi = 0.058
+
         return {
             "total_employees": total_emps,
             "active_employees": active_emps,
-            "high_risk_count": int(total_emps * 0.16),
-            "moderate_risk_count": int(total_emps * 0.28),
-            "low_risk_count": int(total_emps * 0.56),
-            "average_fdi": 0.058,
+            "high_risk_count": high_cnt,
+            "moderate_risk_count": mod_cnt,
+            "low_risk_count": low_cnt,
+            "average_fdi": avg_fdi,
             "department_distribution": dept_dist
         }
 

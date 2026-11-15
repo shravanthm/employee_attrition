@@ -29,6 +29,17 @@ def get_dashboard_metrics(db: Session = Depends(get_db)):
     return AnalyticsService.get_dashboard_metrics(db)
 
 
+@router.get("/metrics/at-risk-employees", tags=["Dashboard"])
+def get_at_risk_employees(
+    tier: str = Query("all", description="Risk tier filter: High, Moderate, Low, or all"),
+    department: str = Query(None, description="Optional department filter"),
+    limit: int = Query(50, ge=1, le=500),
+    db: Session = Depends(get_db)
+):
+    """Retrieve prioritized roster of employees ranked by 90-day flight risk probability and FDI."""
+    return AnalyticsService.get_at_risk_employees(db, tier=tier, department=department, limit=limit)
+
+
 @router.get("/employees", response_model=list[EmployeeResponse], tags=["Employees"])
 def list_employees(
     skip: int = Query(0, ge=0),
