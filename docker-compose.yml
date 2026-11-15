@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: attritionpulse-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-attrition_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-attrition_secret_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-attritionpulse}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-attrition_user} -d ${POSTGRES_DB:-attritionpulse}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  test-db:
+    image: postgres:16-alpine
+    container_name: attritionpulse-test-db
+    restart: "no"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-attrition_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-attrition_secret_pass}
+      POSTGRES_DB: attritionpulse_test
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-attrition_user} -d attritionpulse_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    name: attritionpulse_postgres_data
+  postgres_test_data:
+    name: attritionpulse_postgres_test_data
