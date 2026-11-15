@@ -6,29 +6,33 @@ Supports:
 - Model D: Full model
 - Algorithms: Logistic Regression, Random Forest, XGBoost
 - Evaluation: ROC-AUC, PR-AUC, Precision, Recall, F1, Brier Score
-- SHAP TreeExplainer integration
+- SHAP TreeExplainer & LinearExplainer integration
 - Configurable risk thresholds: Low (<=0.25), Moderate (0.25-0.50), High (0.50-0.75), Critical (>0.75)
 """
 
 import os
+from typing import Any
+
 import joblib
 import numpy as np
 import pandas as pd
-from typing import Tuple, Dict, Any
-
-from sklearn.pipeline import Pipeline
+import shap
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
 from sklearn.metrics import (
-    roc_auc_score, average_precision_score, precision_score,
-    recall_score, f1_score, brier_score_loss, confusion_matrix
+    average_precision_score,
+    brier_score_loss,
+    confusion_matrix,
+    f1_score,
+    precision_score,
+    recall_score,
+    roc_auc_score,
 )
-import shap
-
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from xgboost import XGBClassifier
 
 STATIC_NUMERIC_FEATURES = [
     "commute_minutes_one_way",
@@ -93,7 +97,7 @@ class AttritionPredictionEngine:
         self.explainer = None
         self.feature_names = []
 
-    def train(self, X_train: pd.DataFrame, y_train: pd.Series, numeric_cols: list, categorical_cols: list) -> Dict[str, Any]:
+    def train(self, X_train: pd.DataFrame, y_train: pd.Series, numeric_cols: list, categorical_cols: list) -> dict[str, Any]:
         preprocessor = build_preprocessor(numeric_cols, categorical_cols)
         
         if self.model_type == "logistic_regression":
@@ -110,14 +114,16 @@ class AttritionPredictionEngine:
         
         self.pipeline.fit(X_train, y_train)
         
-        # Fit SHAP explainer on transformed training data for tree models
+        # Fit SHAP explainer
+        transformed_X = self.pipeline.named_steps["preprocessor"].transform(X_train)
         if self.model_type in ["random_forest", "xgboost"]:
-            transformed_X = self.pipeline.named_steps["preprocessor"].transform(X_train)
             self.explainer = shap.TreeExplainer(self.pipeline.named_steps["classifier"])
+        elif self.model_type == "logistic_regression":
+            self.explainer = shap.LinearExplainer(self.pipeline.named_steps["classifier"], transformed_X)
             
         return {"status": "TRAINED", "model_type": self.model_type}
 
-    def evaluate(self, X_test: pd.DataFrame, y_test: pd.Series) -> Dict[str, Any]:
+    def evaluate(self, X_test: pd.DataFrame, y_test: pd.Series) -> dict[str, Any]:
         probs = self.pipeline.predict_proba(X_test)[:, 1]
         preds = (probs >= 0.40).astype(int) # Optimized cutoff
         
@@ -131,7 +137,7 @@ class AttritionPredictionEngine:
             "confusion_matrix": confusion_matrix(y_test, preds).tolist()
         }
 
-    def predict_single_with_explanation(self, single_row: pd.DataFrame, top_k: int = 4) -> Dict[str, Any]:
+    def predict_single_with_explanation(self, single_row: pd.DataFrame, top_k: int = 4) -> dict[str, Any]:
         prob = float(self.pipeline.predict_proba(single_row)[0, 1])
         tier = classify_risk_tier(prob)
         
@@ -140,9 +146,11 @@ class AttritionPredictionEngine:
             transformed = self.pipeline.named_steps["preprocessor"].transform(single_row)
             shap_values = self.explainer.shap_values(transformed)
             if isinstance(shap_values, list):
-                sv = shap_values[1][0]
-            else:
+                sv = shap_values[1][0] if len(shap_values) > 1 else shap_values[0]
+            elif len(shap_values.shape) > 1:
                 sv = shap_values[0]
+            else:
+                sv = shap_values
                 
             # Extract top features
             feature_names = self.pipeline.named_steps["preprocessor"].get_feature_names_out()

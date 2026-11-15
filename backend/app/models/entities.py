@@ -15,16 +15,27 @@ Includes:
 """
 
 import datetime
+
+from app.db.session import Base
 from sqlalchemy import (
-    Column, Integer, String, Float, Boolean, Date, DateTime,
-    ForeignKey, UniqueConstraint, Index, CheckConstraint, Text, JSON
+    JSON,
+    Boolean,
+    Column,
+    Date,
+    DateTime,
+    Float,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
 )
 from sqlalchemy.orm import relationship
-from app.db.session import Base
 
 
 def utcnow():
-    return datetime.datetime.now(datetime.timezone.utc)
+    return datetime.datetime.now(datetime.UTC)
 
 
 class Role(Base):

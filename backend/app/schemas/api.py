@@ -1,8 +1,8 @@
 """Pydantic V2 request & response schemas for AttritionPulse AI API."""
 
-from pydantic import BaseModel, Field, EmailStr
-from typing import Optional, List, Dict, Any
-from datetime import date, datetime
+from datetime import date
+
+from pydantic import BaseModel
 
 
 # Token & Auth
@@ -21,7 +21,7 @@ class UserResponse(BaseModel):
     username: str
     email: str
     is_active: bool
-    role_name: Optional[str] = None
+    role_name: str | None = None
 
 
 # Employee
@@ -30,8 +30,8 @@ class EmployeeResponse(BaseModel):
     employee_code: str
     department: str
     job_role: str
-    business_unit: Optional[str] = None
-    location: Optional[str] = None
+    business_unit: str | None = None
+    location: str | None = None
     hire_date: date
     employment_status: str
 
@@ -45,13 +45,13 @@ class SnapshotResponse(BaseModel):
     employee_id: int
     snapshot_month: date
     overtime_hours: float
-    job_satisfaction_score: Optional[float]
-    work_life_balance_score: Optional[float]
-    manager_support_score: Optional[float]
-    engagement_score: Optional[float]
-    stress_score: Optional[float]
+    job_satisfaction_score: float | None
+    work_life_balance_score: float | None
+    manager_support_score: float | None
+    engagement_score: float | None
+    stress_score: float | None
     absence_rate: float
-    factor_deterioration_index: Optional[float]
+    factor_deterioration_index: float | None
 
     class Config:
         from_attributes = True
@@ -69,7 +69,7 @@ class PredictionResponse(BaseModel):
     risk_probability: float
     risk_category: str
     prediction_horizon_days: int = 90
-    top_explanations: List[ExplanationItem]
+    top_explanations: list[ExplanationItem]
 
 
 # Survival
@@ -81,8 +81,8 @@ class SurvivalHorizonPoint(BaseModel):
 
 class SurvivalResponse(BaseModel):
     employee_id: int
-    median_survival_days: Optional[float] = None
-    survival_timeline: List[SurvivalHorizonPoint]
+    median_survival_days: float | None = None
+    survival_timeline: list[SurvivalHorizonPoint]
 
 
 # Dashboard Overview
@@ -93,4 +93,4 @@ class DashboardMetrics(BaseModel):
     moderate_risk_count: int
     low_risk_count: int
     average_fdi: float
-    department_distribution: Dict[str, int]
+    department_distribution: dict[str, int]

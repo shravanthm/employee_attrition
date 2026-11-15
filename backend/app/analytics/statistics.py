@@ -9,9 +9,8 @@ Includes:
 
 import numpy as np
 import pandas as pd
-from scipy import stats
-import statsmodels.api as sm
 import statsmodels.formula.api as smf
+from scipy import stats
 from statsmodels.stats.multitest import multipletests
 
 

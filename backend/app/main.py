@@ -1,10 +1,10 @@
 """Main FastAPI application entrypoint for AttritionPulse AI."""
 
+from app.api.v1.endpoints import router as api_v1_router
+from app.core.config import settings
+from app.db.session import Base, engine
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.config import settings
-from app.api.v1.endpoints import router as api_v1_router
-from app.db.session import engine, Base
 
 # Auto create tables on boot if not existing (e.g. SQLite fallback)
 Base.metadata.create_all(bind=engine)

@@ -1,19 +1,18 @@
 """FastAPI v1 endpoints for AttritionPulse AI."""
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
-from typing import List, Dict, Any
 
 from app.db.session import get_db
 from app.models.entities import Employee, EmployeeMonthlySnapshot
 from app.schemas.api import (
+    DashboardMetrics,
     EmployeeResponse,
-    SnapshotResponse,
     PredictionResponse,
+    SnapshotResponse,
     SurvivalResponse,
-    DashboardMetrics
 )
 from app.services.analytics_service import AnalyticsService
+from fastapi import APIRouter, Depends, HTTPException, Query
+from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/api/v1")
 
@@ -24,7 +23,7 @@ def get_dashboard_metrics(db: Session = Depends(get_db)):
     return AnalyticsService.get_dashboard_metrics(db)
 
 
-@router.get("/employees", response_model=List[EmployeeResponse], tags=["Employees"])
+@router.get("/employees", response_model=list[EmployeeResponse], tags=["Employees"])
 def list_employees(
     skip: int = Query(0, ge=0),
     limit: int = Query(50, ge=1, le=200),
@@ -47,7 +46,7 @@ def get_employee(employee_id: int, db: Session = Depends(get_db)):
     return emp
 
 
-@router.get("/employees/{employee_id}/snapshots", response_model=List[SnapshotResponse], tags=["Employees"])
+@router.get("/employees/{employee_id}/snapshots", response_model=list[SnapshotResponse], tags=["Employees"])
 def get_employee_snapshots(employee_id: int, db: Session = Depends(get_db)):
     """Retrieve longitudinal 12-factor telemetry snapshots for employee."""
     snapshots = db.query(EmployeeMonthlySnapshot).filter(

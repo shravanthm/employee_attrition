@@ -7,12 +7,12 @@ Includes:
 """
 
 import os
+from typing import Any
+
 import joblib
-import pandas as pd
 import numpy as np
-from typing import Dict, Any, List
-from lifelines import KaplanMeierFitter, CoxPHFitter
-from lifelines.utils import concordance_index
+import pandas as pd
+from lifelines import CoxPHFitter, KaplanMeierFitter
 
 
 class AttritionSurvivalEngine:
@@ -22,7 +22,7 @@ class AttritionSurvivalEngine:
         self.cph = CoxPHFitter(penalizer=penalizer)
         self.trained = False
 
-    def fit_kaplan_meier(self, durations: pd.Series, event_observed: pd.Series, label: str = "Overall Survival") -> Dict[str, Any]:
+    def fit_kaplan_meier(self, durations: pd.Series, event_observed: pd.Series, label: str = "Overall Survival") -> dict[str, Any]:
         self.kmf.fit(durations, event_observed=event_observed, label=label)
         timeline = self.kmf.timeline.tolist()
         survival_probs = self.kmf.survival_function_[label].tolist()
@@ -34,7 +34,7 @@ class AttritionSurvivalEngine:
             "median_survival_time": float(self.kmf.median_survival_time_) if not np.isinf(self.kmf.median_survival_time_) else None
         }
 
-    def fit_cox_proportional_hazards(self, df_survival: pd.DataFrame, duration_col: str = "duration_days", event_col: str = "event_occurred") -> Dict[str, Any]:
+    def fit_cox_proportional_hazards(self, df_survival: pd.DataFrame, duration_col: str = "duration_days", event_col: str = "event_occurred") -> dict[str, Any]:
         clean_df = df_survival.dropna().copy()
         
         # Ensure bool or int for event_col
@@ -55,7 +55,7 @@ class AttritionSurvivalEngine:
             "aic": round(float(self.cph.AIC_partial_), 2)
         }
 
-    def predict_survival_timeline(self, single_row: pd.DataFrame, times: List[int] = [30, 60, 90, 180, 365]) -> List[Dict[str, Any]]:
+    def predict_survival_timeline(self, single_row: pd.DataFrame, times: list[int] = [30, 60, 90, 180, 365]) -> list[dict[str, Any]]:
         if not self.trained:
             raise RuntimeError("Cox Proportional Hazards model has not been trained yet.")
             

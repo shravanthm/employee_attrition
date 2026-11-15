@@ -1,11 +1,12 @@
 """Database session management with graceful PostgreSQL check and SQLite fallback."""
 
-import os
 import logging
-from typing import Generator
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker, Session
+import os
+from collections.abc import Generator
+
 from app.core.config import settings
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session, declarative_base, sessionmaker
 
 logger = logging.getLogger(__name__)
 

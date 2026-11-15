@@ -1,18 +1,18 @@
 """Services layer orchestrating employee data, ML inference, and survival timeline queries."""
 
 import os
-import pandas as pd
-from typing import List, Dict, Any, Optional
-from sqlalchemy.orm import Session
+from typing import Any
 
-from app.models.entities import Employee, EmployeeMonthlySnapshot, AttritionEvent
+import pandas as pd
+from app.analytics.temporal import engineer_temporal_features
 from app.ml.pipeline import AttritionPredictionEngine
 from app.ml.survival import AttritionSurvivalEngine
-from app.analytics.temporal import engineer_temporal_features
+from app.models.entities import Employee
+from sqlalchemy.orm import Session
 
 # Global singletons
-_ml_engine: Optional[AttritionPredictionEngine] = None
-_survival_engine: Optional[AttritionSurvivalEngine] = None
+_ml_engine: AttritionPredictionEngine | None = None
+_survival_engine: AttritionSurvivalEngine | None = None
 
 # Resolves relative to backend root or repository root
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # backend/app
@@ -45,7 +45,7 @@ def get_survival_engine() -> AttritionSurvivalEngine:
 
 class AnalyticsService:
     @staticmethod
-    def get_dashboard_metrics(db: Session) -> Dict[str, Any]:
+    def get_dashboard_metrics(db: Session) -> dict[str, Any]:
         total_emps = db.query(Employee).count()
         active_emps = db.query(Employee).filter(Employee.employment_status == "Active").count()
         
@@ -71,7 +71,7 @@ class AnalyticsService:
         }
 
     @staticmethod
-    def predict_employee_risk(employee_id: int, db: Session) -> Dict[str, Any]:
+    def predict_employee_risk(employee_id: int, db: Session) -> dict[str, Any]:
         engine = get_ml_engine()
         snap_csv = os.path.join(SYNTHETIC_DIR, "monthly_snapshots.csv")
         emp_csv = os.path.join(SYNTHETIC_DIR, "employees.csv")
@@ -101,7 +101,7 @@ class AnalyticsService:
         return res
 
     @staticmethod
-    def get_employee_survival_timeline(employee_id: int, db: Session) -> Dict[str, Any]:
+    def get_employee_survival_timeline(employee_id: int, db: Session) -> dict[str, Any]:
         engine = get_survival_engine()
         snap_csv = os.path.join(SYNTHETIC_DIR, "monthly_snapshots.csv")
         
