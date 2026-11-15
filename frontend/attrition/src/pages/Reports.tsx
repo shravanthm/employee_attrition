@@ -59,10 +59,18 @@ export default function Reports() {
 
         <div className="flex items-center gap-2">
           <button
-            onClick={() => downloadFile('statistical_analysis_report.md')}
+            onClick={() => window.open(`${API_BASE_URL}/api/v1/reports/download-pdf`, '_blank')}
             className="flex items-center gap-1.5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Download executive empirical research report as PDF"
           >
-            <Download size={14} /> Export Executive Summary (.md)
+            <Download size={14} /> Download PDF Report
+          </button>
+          <button
+            onClick={() => downloadFile('statistical_analysis_report.md')}
+            className="flex items-center gap-1.5 px-3 py-2 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-200 text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Download executive research summary as Markdown"
+          >
+            Markdown (.md)
           </button>
         </div>
       </div>
@@ -394,12 +402,20 @@ export default function Reports() {
                     Original experimental paper and empirical research documentation.
                   </p>
                 </div>
-                <button
-                  onClick={() => downloadFile('statistical_analysis_report.md')}
-                  className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800 rounded-lg text-xs font-semibold text-slate-700 dark:text-gray-200 transition-colors cursor-pointer"
-                >
-                  <Download size={13} /> Download .md
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => window.open(`${API_BASE_URL}/api/v1/reports/download-pdf`, '_blank')}
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors cursor-pointer"
+                  >
+                    <Download size={13} /> Download PDF
+                  </button>
+                  <button
+                    onClick={() => downloadFile('statistical_analysis_report.md')}
+                    className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800 rounded-lg text-xs font-semibold text-slate-700 dark:text-gray-200 transition-colors cursor-pointer"
+                  >
+                    <Download size={13} /> Download .md
+                  </button>
+                </div>
               </div>
 
               <div className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl p-6 font-mono text-xs text-slate-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed shadow-xs max-h-[600px] overflow-y-auto">

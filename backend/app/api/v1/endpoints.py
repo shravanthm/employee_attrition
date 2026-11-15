@@ -126,10 +126,10 @@ def get_employee_report(employee_id: int, db: Session = Depends(get_db)):
 @router.get("/employees/{employee_id}/report/download", tags=["Employees"])
 def download_employee_report(
     employee_id: int,
-    format: str = Query("md", pattern="^(md|json|csv)$"),
+    format: str = Query("pdf", pattern="^(pdf|md|json|csv)$"),
     db: Session = Depends(get_db)
 ):
-    """Download individual employee risk intelligence report as Markdown, JSON, or CSV."""
+    """Download individual employee risk intelligence report as PDF, Markdown, JSON, or CSV."""
     import json
     emp = db.query(Employee).filter(Employee.id == employee_id).first()
     if not emp:
@@ -137,6 +137,23 @@ def download_employee_report(
 
     report_data = get_employee_report(employee_id, db)
     code = emp.employee_code
+
+    if format == "pdf":
+        from app.services.pdf_service import generate_employee_dossier_pdf
+        snaps = db.query(EmployeeMonthlySnapshot).filter(
+            EmployeeMonthlySnapshot.employee_id == employee_id
+        ).order_by(EmployeeMonthlySnapshot.snapshot_month.desc()).all()
+        pdf_bytes = generate_employee_dossier_pdf(
+            emp,
+            snaps,
+            prediction=report_data.get("prediction"),
+            survival=report_data.get("survival")
+        )
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={"Content-Disposition": f'inline; filename="AttritionReport_{code}.pdf"'}
+        )
 
     if format == "json":
         content = json.dumps(report_data, indent=2)
@@ -449,10 +466,34 @@ def get_reports_data():
         raise HTTPException(status_code=500, detail=f"Failed to load research reports: {str(e)}")
 
 
+@router.get("/reports/download-pdf", tags=["Reports"])
+def download_research_report_pdf():
+    """Download comprehensive research & statistical analysis report as executive PDF."""
+    from app.services.pdf_service import generate_research_report_pdf
+    rep_dir = _get_reports_dir()
+    pdf_bytes = generate_research_report_pdf(rep_dir)
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={"Content-Disposition": 'inline; filename="AttritionPulse_Research_Report.pdf"'}
+    )
+
+
 @router.get("/reports/download/{filename}", tags=["Reports"])
 def download_report_file(filename: str):
-    """Download research CSV dataset or markdown summary."""
+    """Download research CSV dataset, markdown summary, or compiled PDF report."""
+    if filename in ["statistical_analysis_report.pdf", "report.pdf"]:
+        from app.services.pdf_service import generate_research_report_pdf
+        rep_dir = _get_reports_dir()
+        pdf_bytes = generate_research_report_pdf(rep_dir)
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={"Content-Disposition": 'inline; filename="AttritionPulse_Research_Report.pdf"'}
+        )
+
     allowed = [
+        "statistical_analysis_report.pdf",
         "hypothesis_tests.csv",
         "ml_model_evaluation.csv",
         "cox_hazard_ratios.csv",

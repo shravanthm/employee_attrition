@@ -29,6 +29,9 @@ shap>=0.45.0
 lifelines>=0.29.0
 joblib>=1.4.0
 
+# Document & Report Generation
+reportlab>=4.0.0
+
 # LLM & External Services
 google-generativeai>=0.7.0
 requests>=2.31.0

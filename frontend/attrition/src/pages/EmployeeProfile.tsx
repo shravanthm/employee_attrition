@@ -34,7 +34,7 @@ export default function EmployeeProfile() {
     })
   }, [empId])
 
-  const downloadReport = (format: 'md' | 'json' | 'csv') => {
+  const downloadReport = (format: 'pdf' | 'md' | 'json' | 'csv') => {
     window.open(`${API_BASE_URL}/api/v1/employees/${empId}/report/download?format=${format}`, '_blank')
   }
 
@@ -67,11 +67,11 @@ export default function EmployeeProfile() {
         {/* Export & Download Controls */}
         <div className="flex items-center gap-2">
           <button
-            onClick={() => downloadReport('md')}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
-            title="Download full executive report as Markdown"
+            onClick={() => downloadReport('pdf')}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Download executive flight risk report as PDF"
           >
-            <Download size={13} /> Download Dossier (.md)
+            <Download size={13} /> Download PDF Dossier
           </button>
 
           <button
@@ -83,11 +83,19 @@ export default function EmployeeProfile() {
           </button>
 
           <button
+            onClick={() => downloadReport('md')}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-200 text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Download full executive report as Markdown"
+          >
+            <FileText size={13} className="text-blue-500" /> Markdown (.md)
+          </button>
+
+          <button
             onClick={printDossier}
             className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-200 text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
             title="Print or Save as PDF"
           >
-            <Printer size={13} /> Print / Save PDF
+            <Printer size={13} /> Print
           </button>
         </div>
       </div>

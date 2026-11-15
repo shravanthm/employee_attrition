@@ -306,13 +306,13 @@ export default function Dashboard() {
                     <td className="py-3 px-4 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <a
-                          href={`${API_BASE_URL}/api/v1/employees/${emp.id}/report/download?format=md`}
+                          href={`${API_BASE_URL}/api/v1/employees/${emp.id}/report/download?format=pdf`}
                           target="_blank"
                           rel="noreferrer"
                           className="px-2 py-1 bg-slate-100 dark:bg-gray-800 hover:bg-slate-200 dark:hover:bg-gray-700 rounded text-[11px] font-semibold text-slate-600 dark:text-gray-300 transition-colors inline-flex items-center gap-1"
-                          title="Export Dossier (.md)"
+                          title="Export Executive Dossier (.pdf)"
                         >
-                          <Download size={11} /> Dossier
+                          <Download size={11} /> PDF Dossier
                         </a>
                         <Link
                           to={`/employees/${emp.id}`}
