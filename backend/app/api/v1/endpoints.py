@@ -3,6 +3,7 @@
 
 import datetime
 import io
+import os
 import pandas as pd
 from app.analytics.temporal import engineer_temporal_features
 from app.db.session import get_db
@@ -16,6 +17,7 @@ from app.schemas.api import (
 )
 from app.services.analytics_service import AnalyticsService
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/api/v1")
@@ -230,3 +232,71 @@ async def upload_employees_csv(file: UploadFile = File(...), db: Session = Depen
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Failed to process CSV: {str(e)}")
+
+
+def _get_reports_dir():
+    # Resolve repository root reports folder
+    p = os.path.abspath(__file__)
+    for _ in range(5):
+        p = os.path.dirname(p)
+    rep_path = os.path.join(p, "reports")
+    if os.path.exists(rep_path):
+        return rep_path
+    alt_path = os.path.join(os.getcwd(), "reports")
+    if os.path.exists(alt_path):
+        return alt_path
+    return rep_path
+
+
+@router.get("/reports/data", tags=["Reports"])
+def get_reports_data():
+    """Retrieve structured research analysis tables, hypothesis tests, model benchmarks, and survival data."""
+    try:
+        rep_dir = _get_reports_dir()
+
+        def read_csv_safe(filename):
+            path = os.path.join(rep_dir, filename)
+            if os.path.exists(path):
+                df = pd.read_csv(path)
+                return df.where(pd.notnull(df), None).to_dict(orient="records")
+            return []
+
+        def read_text_safe(filename):
+            path = os.path.join(rep_dir, filename)
+            if os.path.exists(path):
+                with open(path, "r", encoding="utf-8") as f:
+                    return f.read()
+            return ""
+
+        return {
+            "hypothesis_tests": read_csv_safe("hypothesis_tests.csv"),
+            "ml_evaluations": read_csv_safe("ml_model_evaluation.csv"),
+            "cox_hazard_ratios": read_csv_safe("cox_hazard_ratios.csv"),
+            "descriptive_statistics": read_csv_safe("descriptive_statistics.csv"),
+            "logistic_regression": read_csv_safe("logistic_regression_odds_ratios.csv"),
+            "methodology_markdown": read_text_safe("statistical_analysis_report.md")
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load research reports: {str(e)}")
+
+
+@router.get("/reports/download/{filename}", tags=["Reports"])
+def download_report_file(filename: str):
+    """Download research CSV dataset or markdown summary."""
+    allowed = [
+        "hypothesis_tests.csv",
+        "ml_model_evaluation.csv",
+        "cox_hazard_ratios.csv",
+        "descriptive_statistics.csv",
+        "logistic_regression_odds_ratios.csv",
+        "statistical_analysis_report.md"
+    ]
+    if filename not in allowed:
+        raise HTTPException(status_code=400, detail="File not authorized for download")
+    rep_dir = _get_reports_dir()
+    path = os.path.join(rep_dir, filename)
+    if not os.path.exists(path):
+        raise HTTPException(status_code=404, detail="Report file not found")
+    return FileResponse(path, filename=filename, media_type="application/octet-stream")
+
+
