@@ -1,0 +1,361 @@
+employee_code,snapshot_month,department,job_role,hire_date,employment_status,overtime_hours,job_satisfaction_score,work_life_balance_score,manager_support_score,engagement_score,stress_score,absence_rate
+EMP-001,2025-01-01,Sales,Sales Executive,2023-08-12,Active,2.4,4.9,4.6,3.5,3.9,1.1,1.3
+EMP-001,2025-02-01,Sales,Sales Executive,2023-08-12,Active,4.7,4.7,4.4,3.5,4.1,1.3,1.3
+EMP-001,2025-03-01,Sales,Sales Executive,2023-08-12,Active,4.5,4.3,4.4,3.3,4.5,1.3,2.3
+EMP-001,2025-04-01,Sales,Sales Executive,2023-08-12,Active,1.8,4.5,5.0,3.4,4.5,1.3,0.6
+EMP-001,2025-05-01,Sales,Sales Executive,2023-08-12,Active,6.4,4.6,4.7,3.7,3.9,1.0,1.6
+EMP-001,2025-06-01,Sales,Sales Executive,2023-08-12,Active,4.7,4.8,5.0,3.4,4.4,1.0,1.1
+EMP-002,2025-01-01,Engineering,Software Engineer,2017-09-06,Active,5.4,4.7,4.4,4.6,3.2,1.2,1.1
+EMP-002,2025-02-01,Engineering,Software Engineer,2017-09-06,Active,5.6,4.4,,4.9,3.7,1.3,0.0
+EMP-002,2025-03-01,Engineering,Software Engineer,2017-09-06,Active,4.1,4.6,4.0,4.1,2.6,1.5,0.8
+EMP-002,2025-04-01,Engineering,Software Engineer,2017-09-06,Active,4.4,4.3,3.7,3.9,3.7,1.3,3.3
+EMP-002,2025-05-01,Engineering,Software Engineer,2017-09-06,Active,9.5,4.2,4.2,4.6,2.8,1.6,2.1
+EMP-002,2025-06-01,Engineering,Software Engineer,2017-09-06,Active,9.1,3.9,4.0,4.1,3.1,1.6,2.9
+EMP-003,2025-01-01,Finance,Accountant,2024-09-21,Active,5.7,4.0,4.4,4.3,3.4,1.6,0.0
+EMP-003,2025-02-01,Finance,Accountant,2024-09-21,Active,6.5,3.4,4.2,4.4,2.9,1.8,2.6
+EMP-003,2025-03-01,Finance,Accountant,2024-09-21,Active,4.6,2.8,4.0,4.3,2.7,2.1,4.3
+EMP-003,2025-04-01,Finance,Accountant,2024-09-21,Active,14.5,3.3,3.7,4.1,2.1,2.5,5.7
+EMP-003,2025-05-01,Finance,Accountant,2024-09-21,Active,13.7,2.9,4.0,4.1,2.4,2.8,5.5
+EMP-003,2025-06-01,Finance,Accountant,2024-09-21,Active,17.6,2.7,3.3,4.1,2.1,3.7,5.8
+EMP-004,2025-01-01,Operations,Operations Analyst,2021-02-23,Active,8.1,4.5,4.4,4.5,3.9,3.0,0.7
+EMP-004,2025-02-01,Operations,Operations Analyst,2021-02-23,Active,10.0,4.3,4.2,4.1,4.8,3.0,0.0
+EMP-004,2025-03-01,Operations,Operations Analyst,2021-02-23,Active,7.6,4.5,4.1,4.5,4.2,2.9,0.7
+EMP-004,2025-04-01,Operations,Operations Analyst,2021-02-23,Active,10.1,4.4,4.4,4.2,4.2,3.0,0.3
+EMP-004,2025-05-01,Operations,Operations Analyst,2021-02-23,Active,12.0,,4.2,4.9,4.4,2.4,0.0
+EMP-004,2025-06-01,Operations,Operations Analyst,2021-02-23,Active,9.3,4.1,3.7,4.0,4.2,3.0,0.6
+EMP-005,2025-01-01,Finance,Accountant,2019-03-26,Active,10.6,4.6,3.6,4.4,3.1,3.0,0.0
+EMP-005,2025-02-01,Finance,Accountant,2019-03-26,Active,2.7,4.6,3.8,4.1,2.9,2.5,0.0
+EMP-005,2025-03-01,Finance,Accountant,2019-03-26,Active,8.7,4.8,3.9,4.9,3.3,3.2,0.0
+EMP-005,2025-04-01,Finance,Accountant,2019-03-26,Active,9.5,4.6,3.6,4.8,3.8,2.4,0.0
+EMP-005,2025-05-01,Finance,Accountant,2019-03-26,Active,6.9,4.4,4.0,4.5,3.3,2.4,0.7
+EMP-005,2025-06-01,Finance,Accountant,2019-03-26,Active,7.7,5.0,4.1,4.6,3.1,2.9,1.4
+EMP-006,2025-01-01,Finance,Financial Analyst,2020-10-15,Active,3.5,3.7,3.9,3.0,2.8,1.2,1.4
+EMP-006,2025-02-01,Finance,Financial Analyst,2020-10-15,Active,7.6,3.9,3.5,3.2,3.1,1.8,2.9
+EMP-006,2025-03-01,Finance,Financial Analyst,2020-10-15,Active,8.2,3.3,3.7,3.7,3.1,2.3,3.3
+EMP-006,2025-04-01,Finance,Financial Analyst,2020-10-15,Active,9.8,3.2,3.7,2.9,3.1,2.4,2.8
+EMP-006,2025-05-01,Finance,Financial Analyst,2020-10-15,Active,13.1,3.5,3.0,2.9,2.4,1.8,4.5
+EMP-006,2025-06-01,Finance,Financial Analyst,2020-10-15,Active,11.7,2.5,3.2,3.5,2.9,2.2,2.4
+EMP-007,2025-01-01,Human Resources,Recruiter,2018-02-15,Active,15.5,2.8,3.7,3.9,3.6,1.4,1.8
+EMP-007,2025-02-01,Human Resources,Recruiter,2018-02-15,Active,14.2,2.8,3.1,3.8,3.3,1.2,1.5
+EMP-007,2025-03-01,Human Resources,Recruiter,2018-02-15,Active,12.7,2.7,2.8,3.7,3.2,1.7,2.2
+EMP-007,2025-04-01,Human Resources,Recruiter,2018-02-15,Active,19.1,2.9,3.3,3.9,3.2,1.9,2.7
+EMP-007,2025-05-01,Human Resources,Recruiter,2018-02-15,Active,14.9,2.4,2.7,3.6,3.0,2.0,2.3
+EMP-007,2025-06-01,Human Resources,Recruiter,2018-02-15,Active,15.3,2.5,2.8,3.8,3.0,1.7,3.7
+EMP-008,2025-01-01,Sales,Account Manager,2023-10-08,Active,12.2,4.5,4.3,4.3,4.1,2.6,4.0
+EMP-008,2025-02-01,Sales,Account Manager,2023-10-08,Active,13.7,5.0,3.9,3.7,4.5,2.4,2.6
+EMP-008,2025-03-01,Sales,Account Manager,2023-10-08,Active,13.5,5.0,4.9,4.0,4.6,2.4,2.8
+EMP-008,2025-04-01,Sales,Account Manager,2023-10-08,Active,8.4,5.0,4.8,3.9,5.0,1.8,3.1
+EMP-008,2025-05-01,Sales,Account Manager,2023-10-08,Active,12.8,5.0,4.9,4.3,5.0,1.5,1.8
+EMP-008,2025-06-01,Sales,Account Manager,2023-10-08,Active,6.8,5.0,4.6,4.8,5.0,1.3,2.0
+EMP-009,2025-01-01,Sales,Sales Executive,2023-09-10,Active,9.6,3.3,3.3,3.2,4.3,2.6,1.0
+EMP-009,2025-02-01,Sales,Sales Executive,2023-09-10,Active,5.8,3.3,3.0,3.3,4.2,3.2,0.4
+EMP-009,2025-03-01,Sales,Sales Executive,2023-09-10,Active,6.9,2.9,2.8,3.0,3.6,3.3,0.3
+EMP-009,2025-04-01,Sales,Sales Executive,2023-09-10,Active,10.9,2.6,2.3,3.5,3.9,4.0,4.1
+EMP-009,2025-05-01,Sales,Sales Executive,2023-09-10,Active,13.5,2.7,2.7,3.1,3.5,3.5,6.0
+EMP-009,2025-06-01,Sales,Sales Executive,2023-09-10,Active,11.2,2.4,2.2,3.3,2.9,3.7,3.0
+EMP-010,2025-01-01,Engineering,QA Engineer,2020-11-19,Active,6.4,4.1,3.5,3.2,3.2,2.1,0.6
+EMP-010,2025-02-01,Engineering,QA Engineer,2020-11-19,Active,12.6,3.5,3.6,3.0,2.9,2.0,0.0
+EMP-010,2025-03-01,Engineering,QA Engineer,2020-11-19,Active,11.8,4.0,3.4,3.2,2.7,1.9,1.5
+EMP-010,2025-04-01,Engineering,QA Engineer,2020-11-19,Active,5.9,3.7,3.3,3.1,3.2,1.9,2.9
+EMP-010,2025-05-01,Engineering,QA Engineer,2020-11-19,Active,11.4,3.1,3.2,3.1,3.3,2.5,1.4
+EMP-010,2025-06-01,Engineering,QA Engineer,2020-11-19,Active,15.3,3.2,3.6,3.2,3.1,2.3,3.4
+EMP-011,2025-01-01,Operations,Operations Analyst,2018-05-13,Active,3.7,4.1,4.0,3.4,3.1,2.2,2.4
+EMP-011,2025-02-01,Operations,Operations Analyst,2018-05-13,Active,6.0,3.8,3.2,3.1,3.0,2.3,2.2
+EMP-011,2025-03-01,Operations,Operations Analyst,2018-05-13,Active,5.1,3.7,,3.1,2.9,1.5,2.6
+EMP-011,2025-04-01,Operations,Operations Analyst,2018-05-13,Active,1.1,3.9,3.8,3.4,3.0,1.6,2.6
+EMP-011,2025-05-01,Operations,Operations Analyst,2018-05-13,Active,3.4,4.0,3.5,2.9,2.9,1.9,1.7
+EMP-011,2025-06-01,Operations,Operations Analyst,2018-05-13,Active,1.1,3.6,3.6,3.0,3.1,1.9,1.9
+EMP-012,2025-01-01,Sales,Account Manager,2021-02-21,Active,5.3,4.1,3.5,4.2,4.0,2.7,1.3
+EMP-012,2025-02-01,Sales,Account Manager,2021-02-21,Active,7.0,5.0,3.3,4.3,4.3,3.2,2.4
+EMP-012,2025-03-01,Sales,Account Manager,2021-02-21,Active,9.5,4.8,3.2,4.1,4.2,2.7,2.3
+EMP-012,2025-04-01,Sales,Account Manager,2021-02-21,Active,3.6,4.7,3.5,3.4,4.5,2.5,2.2
+EMP-012,2025-05-01,Sales,Account Manager,2021-02-21,Active,8.0,4.8,3.0,3.7,4.2,2.8,1.3
+EMP-012,2025-06-01,Sales,Account Manager,2021-02-21,Active,7.2,4.2,2.9,3.8,4.3,2.8,2.5
+EMP-013,2025-01-01,Engineering,Software Engineer,2022-05-27,Active,8.8,4.6,3.0,3.3,3.5,2.5,1.0
+EMP-013,2025-02-01,Engineering,Software Engineer,2022-05-27,Active,15.6,5.0,3.4,3.3,4.1,1.7,1.6
+EMP-013,2025-03-01,Engineering,Software Engineer,2022-05-27,Active,12.9,5.0,3.4,3.6,4.1,1.4,3.0
+EMP-013,2025-04-01,Engineering,Software Engineer,2022-05-27,Active,10.8,5.0,4.1,3.2,4.1,1.1,1.3
+EMP-013,2025-05-01,Engineering,Software Engineer,2022-05-27,Active,11.6,5.0,4.1,3.7,4.4,1.0,3.0
+EMP-013,2025-06-01,Engineering,Software Engineer,2022-05-27,Active,11.0,5.0,4.0,3.9,4.8,1.0,2.7
+EMP-014,2025-01-01,Research & Development,Research Associate,2024-05-03,Active,12.3,3.8,3.7,3.2,5.0,2.6,0.5
+EMP-014,2025-02-01,Research & Development,Research Associate,2024-05-03,Active,6.0,4.1,4.0,3.5,5.0,1.9,0.0
+EMP-014,2025-03-01,Research & Development,Research Associate,2024-05-03,Active,4.1,4.4,4.6,3.8,5.0,1.5,1.6
+EMP-014,2025-04-01,Research & Development,Research Associate,2024-05-03,Active,7.6,4.9,5.0,3.5,5.0,1.5,1.1
+EMP-014,2025-05-01,Research & Development,Research Associate,2024-05-03,Active,10.0,5.0,5.0,4.3,5.0,1.4,0.3
+EMP-014,2025-06-01,Research & Development,Research Associate,2024-05-03,Active,5.7,5.0,5.0,4.4,5.0,1.0,1.1
+EMP-015,2025-01-01,Operations,Operations Manager,2018-06-04,Active,11.3,4.0,3.9,4.2,3.0,1.7,2.9
+EMP-015,2025-02-01,Operations,Operations Manager,2018-06-04,Active,10.9,4.2,3.5,4.0,2.4,2.0,4.2
+EMP-015,2025-03-01,Operations,Operations Manager,2018-06-04,Active,10.7,3.8,4.0,3.9,2.8,2.4,4.5
+EMP-015,2025-04-01,Operations,Operations Manager,2018-06-04,Active,11.9,4.0,4.0,4.0,2.5,2.1,4.9
+EMP-015,2025-05-01,Operations,Operations Manager,2018-06-04,Active,18.1,3.4,3.6,3.9,3.2,2.1,5.0
+EMP-015,2025-06-01,Operations,Operations Manager,2018-06-04,Active,13.9,3.6,3.5,4.2,2.3,2.9,5.4
+EMP-016,2025-01-01,Human Resources,Recruiter,2019-03-16,Active,3.5,4.8,4.0,4.3,3.6,2.0,0.9
+EMP-016,2025-02-01,Human Resources,Recruiter,2019-03-16,Active,2.4,4.6,3.0,4.1,3.5,1.6,0.5
+EMP-016,2025-03-01,Human Resources,Recruiter,2019-03-16,Active,7.0,4.7,3.8,4.9,3.6,1.8,1.6
+EMP-016,2025-04-01,Human Resources,Recruiter,2019-03-16,Active,7.2,5.0,3.4,4.8,3.3,1.1,1.3
+EMP-016,2025-05-01,Human Resources,Recruiter,2019-03-16,Active,3.0,4.9,3.8,4.7,3.7,1.4,0.8
+EMP-016,2025-06-01,Human Resources,Recruiter,2019-03-16,Active,8.4,5.0,3.8,4.7,3.8,1.0,0.4
+EMP-017,2025-01-01,Engineering,QA Engineer,2020-02-23,Active,3.2,4.5,4.0,4.9,2.6,1.4,2.3
+EMP-017,2025-02-01,Engineering,QA Engineer,2020-02-23,Active,6.3,4.3,4.1,4.6,3.1,2.3,2.2
+EMP-017,2025-03-01,Engineering,QA Engineer,2020-02-23,Active,5.7,4.2,4.1,3.8,2.6,1.9,3.0
+EMP-017,2025-04-01,Engineering,QA Engineer,2020-02-23,Active,4.8,3.9,4.2,4.7,2.8,2.3,1.9
+EMP-017,2025-05-01,Engineering,QA Engineer,2020-02-23,Active,9.7,3.9,3.1,4.0,2.8,2.6,3.0
+EMP-017,2025-06-01,Engineering,QA Engineer,2020-02-23,Active,11.3,4.0,3.4,3.8,2.6,2.8,4.7
+EMP-018,2025-01-01,Operations,Operations Manager,2017-04-21,Active,2.5,4.4,3.0,3.5,4.0,1.4,0.0
+EMP-018,2025-02-01,Operations,Operations Manager,2017-04-21,Active,0.0,4.8,3.4,3.3,4.1,1.3,0.0
+EMP-018,2025-03-01,Operations,Operations Manager,2017-04-21,Active,6.1,4.6,3.6,3.5,4.5,1.4,0.0
+EMP-018,2025-04-01,Operations,Operations Manager,2017-04-21,Active,1.2,4.8,3.5,3.7,4.1,1.0,0.4
+EMP-018,2025-05-01,Operations,Operations Manager,2017-04-21,Active,1.6,5.0,3.6,3.7,4.7,1.4,2.0
+EMP-018,2025-06-01,Operations,Operations Manager,2017-04-21,Active,6.6,5.0,3.4,3.2,4.4,1.0,1.8
+EMP-019,2025-01-01,Human Resources,Recruiter,2023-11-11,Active,10.9,4.2,3.5,3.6,3.7,1.2,1.8
+EMP-019,2025-02-01,Human Resources,Recruiter,2023-11-11,Active,7.7,4.4,3.5,3.7,3.6,1.3,2.8
+EMP-019,2025-03-01,Human Resources,Recruiter,2023-11-11,Active,9.9,4.4,3.1,3.2,4.0,1.3,0.0
+EMP-019,2025-04-01,Human Resources,Recruiter,2023-11-11,Active,9.9,4.3,3.7,3.6,3.7,1.0,2.0
+EMP-019,2025-05-01,Human Resources,Recruiter,2023-11-11,Active,11.1,3.9,3.5,3.7,3.3,1.3,0.9
+EMP-019,2025-06-01,Human Resources,Recruiter,2023-11-11,Active,7.5,4.5,3.1,3.7,3.6,1.3,1.6
+EMP-020,2025-01-01,Research & Development,Research Associate,2018-09-18,Active,7.6,3.1,4.2,3.9,3.8,1.5,0.0
+EMP-020,2025-02-01,Research & Development,Research Associate,2018-09-18,Active,12.5,3.2,4.1,4.3,4.4,1.6,1.6
+EMP-020,2025-03-01,Research & Development,Research Associate,2018-09-18,Active,3.9,3.3,3.9,3.7,4.9,1.4,2.8
+EMP-020,2025-04-01,Research & Development,Research Associate,2018-09-18,Active,4.8,3.3,3.8,4.0,4.9,1.4,1.3
+EMP-020,2025-05-01,Research & Development,Research Associate,2018-09-18,Active,6.7,3.2,4.4,3.6,4.6,1.1,0.7
+EMP-020,2025-06-01,Research & Development,Research Associate,2018-09-18,Active,5.7,3.5,3.8,4.2,4.6,1.0,2.2
+EMP-021,2025-01-01,Operations,Operations Manager,2018-10-01,Active,9.3,4.9,4.5,4.3,3.6,1.9,0.6
+EMP-021,2025-02-01,Operations,Operations Manager,2018-10-01,Active,8.6,5.0,4.9,4.2,4.0,1.6,0.9
+EMP-021,2025-03-01,Operations,Operations Manager,2018-10-01,Active,6.9,4.5,5.0,4.3,4.1,2.0,0.8
+EMP-021,2025-04-01,Operations,Operations Manager,2018-10-01,Active,8.0,4.9,5.0,4.1,4.5,2.2,1.2
+EMP-021,2025-05-01,Operations,Operations Manager,2018-10-01,Active,7.9,4.8,5.0,4.3,3.7,2.1,1.8
+EMP-021,2025-06-01,Operations,Operations Manager,2018-10-01,Active,4.5,4.5,4.6,4.0,4.0,1.9,0.0
+EMP-022,2025-01-01,Operations,Operations Manager,2023-08-13,Active,10.8,3.7,3.0,4.0,3.5,2.3,2.9
+EMP-022,2025-02-01,Operations,Operations Manager,2023-08-13,Active,9.9,3.8,3.5,4.1,3.6,2.2,2.0
+EMP-022,2025-03-01,Operations,Operations Manager,2023-08-13,Active,15.1,3.4,2.7,3.7,2.9,2.4,1.6
+EMP-022,2025-04-01,Operations,Operations Manager,2023-08-13,Active,13.6,3.6,3.6,3.7,3.2,2.9,2.3
+EMP-022,2025-05-01,Operations,Operations Manager,2023-08-13,Active,13.2,3.8,2.8,4.2,3.0,2.6,1.3
+EMP-022,2025-06-01,Operations,Operations Manager,2023-08-13,Active,14.8,3.4,2.9,3.8,3.4,2.2,0.8
+EMP-023,2025-01-01,Research & Development,Research Scientist,2023-07-13,Active,5.7,3.7,3.5,4.0,3.2,1.2,0.1
+EMP-023,2025-02-01,Research & Development,Research Scientist,2023-07-13,Active,4.1,3.2,,3.2,3.7,1.6,1.9
+EMP-023,2025-03-01,Research & Development,Research Scientist,2023-07-13,Active,2.2,3.2,3.5,4.0,3.8,1.9,2.8
+EMP-023,2025-04-01,Research & Development,Research Scientist,2023-07-13,Active,5.7,3.3,3.1,4.2,3.7,1.8,0.7
+EMP-023,2025-05-01,Research & Development,Research Scientist,2023-07-13,Active,3.3,3.3,3.1,4.0,3.8,1.2,0.2
+EMP-023,2025-06-01,Research & Development,Research Scientist,2023-07-13,Active,4.2,3.5,3.2,4.0,3.9,1.6,1.0
+EMP-024,2025-01-01,Finance,Financial Analyst,2017-02-07,Active,7.1,3.5,3.5,4.4,3.2,2.0,0.1
+EMP-024,2025-02-01,Finance,Financial Analyst,2017-02-07,Active,0.0,3.5,3.8,4.7,3.6,1.4,3.3
+EMP-024,2025-03-01,Finance,Financial Analyst,2017-02-07,Active,5.7,3.4,3.4,4.9,3.5,1.7,2.6
+EMP-024,2025-04-01,Finance,Financial Analyst,2017-02-07,Active,3.7,3.7,3.9,5.0,4.2,1.0,3.7
+EMP-024,2025-05-01,Finance,Financial Analyst,2017-02-07,Active,4.7,4.0,4.0,5.0,3.9,1.2,1.6
+EMP-024,2025-06-01,Finance,Financial Analyst,2017-02-07,Active,6.4,3.8,4.3,5.0,4.3,1.0,3.5
+EMP-025,2025-01-01,Human Resources,Recruiter,2022-08-13,Active,9.1,4.6,3.7,2.7,4.8,1.8,0.0
+EMP-025,2025-02-01,Human Resources,Recruiter,2022-08-13,Active,12.5,4.5,3.6,2.8,4.6,1.6,0.2
+EMP-025,2025-03-01,Human Resources,Recruiter,2022-08-13,Active,10.6,5.0,3.7,3.1,4.6,1.2,0.0
+EMP-025,2025-04-01,Human Resources,Recruiter,2022-08-13,Active,7.9,5.0,3.4,3.2,5.0,1.7,0.6
+EMP-025,2025-05-01,Human Resources,Recruiter,2022-08-13,Active,9.0,4.7,3.7,2.9,4.9,1.5,0.0
+EMP-025,2025-06-01,Human Resources,Recruiter,2022-08-13,Active,12.7,4.8,3.7,3.0,4.6,1.1,0.0
+EMP-026,2025-01-01,Finance,Accountant,2017-10-16,Active,6.3,3.1,3.4,4.8,3.0,3.1,2.4
+EMP-026,2025-02-01,Finance,Accountant,2017-10-16,Active,11.3,3.1,3.1,4.8,3.6,2.4,3.3
+EMP-026,2025-03-01,Finance,Accountant,2017-10-16,Active,9.2,2.6,3.9,4.7,2.9,2.5,1.7
+EMP-026,2025-04-01,Finance,Accountant,2017-10-16,Active,10.9,3.3,3.4,4.6,3.6,2.8,1.3
+EMP-026,2025-05-01,Finance,Accountant,2017-10-16,Active,9.4,3.1,3.7,4.7,3.1,2.1,3.2
+EMP-026,2025-06-01,Finance,Accountant,2017-10-16,Active,7.4,3.0,3.8,4.7,3.5,2.6,2.9
+EMP-027,2025-01-01,Finance,Accountant,2021-02-16,Active,4.7,4.5,4.0,3.9,4.0,2.9,0.1
+EMP-027,2025-02-01,Finance,Accountant,2021-02-16,Active,14.7,4.2,3.6,3.2,4.5,2.5,0.4
+EMP-027,2025-03-01,Finance,Accountant,2021-02-16,Active,4.9,4.9,4.0,3.5,4.0,2.7,2.3
+EMP-027,2025-04-01,Finance,Accountant,2021-02-16,Active,3.7,4.0,3.5,3.6,4.7,2.9,1.2
+EMP-027,2025-05-01,Finance,Accountant,2021-02-16,Active,6.9,4.6,3.9,3.5,4.0,2.4,0.7
+EMP-027,2025-06-01,Finance,Accountant,2021-02-16,Active,2.9,4.7,4.0,3.5,4.4,2.5,1.3
+EMP-028,2025-01-01,Research & Development,Research Associate,2021-01-10,Active,10.9,4.7,4.9,3.3,3.0,1.8,3.6
+EMP-028,2025-02-01,Research & Development,Research Associate,2021-01-10,Active,8.1,4.7,5.0,3.2,3.4,1.9,1.9
+EMP-028,2025-03-01,Research & Development,Research Associate,2021-01-10,Active,6.6,4.5,4.8,3.3,3.9,1.5,3.1
+EMP-028,2025-04-01,Research & Development,Research Associate,2021-01-10,Active,9.9,4.2,4.2,3.4,3.2,1.6,2.5
+EMP-028,2025-05-01,Research & Development,Research Associate,2021-01-10,Active,9.4,4.6,4.9,3.2,3.4,2.0,1.9
+EMP-028,2025-06-01,Research & Development,Research Associate,2021-01-10,Active,10.2,4.8,5.0,3.4,3.5,1.7,3.0
+EMP-029,2025-01-01,Engineering,QA Engineer,2018-04-12,Active,1.8,3.8,4.5,4.4,4.6,2.1,1.3
+EMP-029,2025-02-01,Engineering,QA Engineer,2018-04-12,Active,2.0,3.8,4.4,4.3,4.5,1.9,1.1
+EMP-029,2025-03-01,Engineering,QA Engineer,2018-04-12,Active,9.4,4.1,4.1,3.8,4.5,2.5,1.5
+EMP-029,2025-04-01,Engineering,QA Engineer,2018-04-12,Active,9.8,4.0,4.1,3.9,4.6,2.2,2.5
+EMP-029,2025-05-01,Engineering,QA Engineer,2018-04-12,Active,6.4,3.2,3.9,4.2,4.4,2.1,3.3
+EMP-029,2025-06-01,Engineering,QA Engineer,2018-04-12,Active,11.5,3.8,3.7,3.8,4.2,2.7,0.8
+EMP-030,2025-01-01,Engineering,Software Engineer,2017-03-23,Active,6.3,4.3,3.1,4.1,3.6,2.3,1.9
+EMP-030,2025-02-01,Engineering,Software Engineer,2017-03-23,Active,5.6,4.4,3.5,4.2,3.6,2.7,3.7
+EMP-030,2025-03-01,Engineering,Software Engineer,2017-03-23,Active,6.4,4.3,3.6,4.5,3.7,2.5,3.3
+EMP-030,2025-04-01,Engineering,Software Engineer,2017-03-23,Active,12.4,4.4,3.8,4.6,3.8,2.5,1.4
+EMP-030,2025-05-01,Engineering,Software Engineer,2017-03-23,Active,8.3,4.6,,4.8,3.9,2.3,2.5
+EMP-030,2025-06-01,Engineering,Software Engineer,2017-03-23,Active,9.5,4.7,3.5,4.5,3.6,2.4,3.0
+EMP-031,2025-01-01,Engineering,Software Engineer,2019-12-08,Active,9.4,3.6,4.1,4.4,4.6,2.7,2.3
+EMP-031,2025-02-01,Engineering,Software Engineer,2019-12-08,Active,4.8,3.7,4.5,4.5,4.7,2.9,2.2
+EMP-031,2025-03-01,Engineering,Software Engineer,2019-12-08,Active,7.9,3.4,4.5,4.2,4.4,2.5,0.0
+EMP-031,2025-04-01,Engineering,Software Engineer,2019-12-08,Active,8.3,3.9,4.4,4.4,4.7,2.8,1.2
+EMP-031,2025-05-01,Engineering,Software Engineer,2019-12-08,Active,3.0,3.8,4.8,4.4,5.0,2.6,0.6
+EMP-031,2025-06-01,Engineering,Software Engineer,2019-12-08,Active,13.6,3.8,4.3,4.4,4.5,3.0,2.0
+EMP-032,2025-01-01,Finance,Accountant,2018-07-14,Active,6.3,4.1,4.5,4.3,4.9,1.8,0.2
+EMP-032,2025-02-01,Finance,Accountant,2018-07-14,Active,5.1,4.1,3.9,4.3,4.8,1.3,2.1
+EMP-032,2025-03-01,Finance,Accountant,2018-07-14,Active,6.1,4.1,4.5,4.4,4.7,1.8,2.3
+EMP-032,2025-04-01,Finance,Accountant,2018-07-14,Active,5.8,4.0,4.4,4.3,4.9,2.1,0.1
+EMP-032,2025-05-01,Finance,Accountant,2018-07-14,Active,11.6,3.6,4.0,4.4,4.6,1.8,1.0
+EMP-032,2025-06-01,Finance,Accountant,2018-07-14,Active,7.6,4.0,4.3,4.4,4.7,2.1,2.2
+EMP-033,2025-01-01,Engineering,Software Engineer,2022-05-11,Active,2.6,3.7,3.7,4.1,3.8,2.2,1.4
+EMP-033,2025-02-01,Engineering,Software Engineer,2022-05-11,Active,2.7,3.8,3.8,4.0,4.1,1.6,3.8
+EMP-033,2025-03-01,Engineering,Software Engineer,2022-05-11,Active,3.4,3.6,3.4,4.1,3.7,1.7,1.8
+EMP-033,2025-04-01,Engineering,Software Engineer,2022-05-11,Active,1.7,3.8,3.7,4.0,3.6,1.8,0.5
+EMP-033,2025-05-01,Engineering,Software Engineer,2022-05-11,Active,10.5,3.9,3.9,4.0,3.9,2.0,0.0
+EMP-033,2025-06-01,Engineering,Software Engineer,2022-05-11,Active,3.6,3.6,3.3,3.8,3.5,1.7,1.5
+EMP-034,2025-01-01,Operations,Operations Analyst,2019-03-10,Active,8.3,4.1,4.1,4.3,3.4,2.7,0.4
+EMP-034,2025-02-01,Operations,Operations Analyst,2019-03-10,Active,10.3,4.3,3.8,4.2,3.1,2.6,0.5
+EMP-034,2025-03-01,Operations,Operations Analyst,2019-03-10,Active,12.7,4.5,3.8,4.5,3.6,2.4,1.4
+EMP-034,2025-04-01,Operations,Operations Analyst,2019-03-10,Active,7.0,4.5,4.1,4.4,3.6,2.1,0.5
+EMP-034,2025-05-01,Operations,Operations Analyst,2019-03-10,Active,16.2,4.7,4.0,4.6,3.8,2.2,0.7
+EMP-034,2025-06-01,Operations,Operations Analyst,2019-03-10,Active,10.5,4.8,4.8,4.4,3.6,1.9,0.0
+EMP-035,2025-01-01,Sales,Account Manager,2017-10-20,Active,5.0,4.5,3.8,3.5,3.7,1.0,0.0
+EMP-035,2025-02-01,Sales,Account Manager,2017-10-20,Active,1.9,4.7,4.4,3.1,3.5,1.1,0.5
+EMP-035,2025-03-01,Sales,Account Manager,2017-10-20,Active,4.0,4.5,3.9,3.6,3.9,1.0,0.9
+EMP-035,2025-04-01,Sales,Account Manager,2017-10-20,Active,2.5,4.5,5.0,3.7,3.4,1.0,1.1
+EMP-035,2025-05-01,Sales,Account Manager,2017-10-20,Active,3.5,5.0,4.8,4.4,4.3,1.0,1.2
+EMP-035,2025-06-01,Sales,Account Manager,2017-10-20,Active,1.7,5.0,5.0,4.5,4.0,1.0,0.0
+EMP-036,2025-01-01,Human Resources,Recruiter,2022-02-25,Active,2.8,4.0,4.1,4.4,4.0,2.2,2.9
+EMP-036,2025-02-01,Human Resources,Recruiter,2022-02-25,Active,5.8,4.0,4.0,4.6,3.8,1.7,0.8
+EMP-036,2025-03-01,Human Resources,Recruiter,2022-02-25,Active,4.3,3.9,3.3,4.0,3.7,2.4,3.6
+EMP-036,2025-04-01,Human Resources,Recruiter,2022-02-25,Active,6.1,3.8,3.6,4.6,3.5,2.1,4.9
+EMP-036,2025-05-01,Human Resources,Recruiter,2022-02-25,Active,7.5,3.3,3.7,4.3,3.6,2.9,4.8
+EMP-036,2025-06-01,Human Resources,Recruiter,2022-02-25,Active,6.2,3.4,3.3,4.4,3.8,3.3,4.7
+EMP-037,2025-01-01,Engineering,Software Engineer,2018-06-19,Active,4.1,3.5,3.3,3.4,3.2,2.7,2.2
+EMP-037,2025-02-01,Engineering,Software Engineer,2018-06-19,Active,5.7,3.0,3.4,4.2,3.1,2.3,3.4
+EMP-037,2025-03-01,Engineering,Software Engineer,2018-06-19,Active,2.9,3.6,3.2,4.1,3.1,2.3,2.1
+EMP-037,2025-04-01,Engineering,Software Engineer,2018-06-19,Active,0.0,3.4,4.0,4.2,3.2,2.3,2.6
+EMP-037,2025-05-01,Engineering,Software Engineer,2018-06-19,Active,6.8,3.5,3.6,4.5,3.0,2.0,3.7
+EMP-037,2025-06-01,Engineering,Software Engineer,2018-06-19,Active,2.9,3.9,3.3,3.8,3.5,2.6,2.4
+EMP-038,2025-01-01,Human Resources,HR Specialist,2018-05-07,Active,6.0,4.5,3.7,3.5,3.4,1.8,2.9
+EMP-038,2025-02-01,Human Resources,HR Specialist,2018-05-07,Active,7.9,5.0,4.7,3.4,3.2,1.9,1.8
+EMP-038,2025-03-01,Human Resources,HR Specialist,2018-05-07,Active,1.2,4.7,4.0,3.5,3.6,1.4,0.4
+EMP-038,2025-04-01,Human Resources,HR Specialist,2018-05-07,Active,9.1,5.0,3.9,3.4,3.2,1.3,3.0
+EMP-038,2025-05-01,Human Resources,HR Specialist,2018-05-07,Active,0.8,5.0,,3.8,3.3,1.3,2.5
+EMP-038,2025-06-01,Human Resources,HR Specialist,2018-05-07,Active,5.5,5.0,4.1,3.7,3.6,1.2,2.4
+EMP-039,2025-01-01,Operations,Operations Manager,2022-08-10,Active,6.3,3.9,3.9,3.2,4.6,1.8,1.9
+EMP-039,2025-02-01,Operations,Operations Manager,2022-08-10,Active,4.8,3.6,4.1,4.0,4.8,1.8,1.3
+EMP-039,2025-03-01,Operations,Operations Manager,2022-08-10,Active,7.6,3.5,3.8,3.5,4.6,2.1,0.5
+EMP-039,2025-04-01,Operations,Operations Manager,2022-08-10,Active,5.8,3.2,3.3,4.0,4.7,1.8,3.6
+EMP-039,2025-05-01,Operations,Operations Manager,2022-08-10,Active,5.2,3.3,3.7,3.6,4.5,2.1,1.2
+EMP-039,2025-06-01,Operations,Operations Manager,2022-08-10,Active,6.8,3.2,3.7,3.4,4.6,2.0,2.8
+EMP-040,2025-01-01,Sales,Account Manager,2019-02-10,Active,8.0,4.4,4.0,4.9,4.6,2.1,3.2
+EMP-040,2025-02-01,Sales,Account Manager,2019-02-10,Active,6.6,4.2,3.7,4.2,4.6,2.7,3.1
+EMP-040,2025-03-01,Sales,Account Manager,2019-02-10,Active,2.9,4.2,3.4,4.3,4.7,2.5,2.8
+EMP-040,2025-04-01,Sales,Account Manager,2019-02-10,Active,7.2,4.2,3.8,4.6,4.7,2.3,1.1
+EMP-040,2025-05-01,Sales,Account Manager,2019-02-10,Active,1.2,4.2,3.1,4.3,4.7,2.3,3.1
+EMP-040,2025-06-01,Sales,Account Manager,2019-02-10,Active,5.8,4.0,3.5,4.8,4.1,2.1,3.1
+EMP-041,2025-01-01,Human Resources,HR Specialist,2024-06-19,Active,5.3,4.5,3.6,3.6,4.2,2.3,2.3
+EMP-041,2025-02-01,Human Resources,HR Specialist,2024-06-19,Active,6.7,3.9,3.8,3.7,3.6,2.2,3.6
+EMP-041,2025-03-01,Human Resources,HR Specialist,2024-06-19,Active,8.2,4.4,3.7,3.7,4.0,2.1,2.4
+EMP-041,2025-04-01,Human Resources,HR Specialist,2024-06-19,Active,12.7,4.4,3.8,4.1,3.7,2.3,1.4
+EMP-041,2025-05-01,Human Resources,HR Specialist,2024-06-19,Active,4.3,4.4,3.6,3.7,3.7,2.3,2.3
+EMP-041,2025-06-01,Human Resources,HR Specialist,2024-06-19,Active,5.7,,3.7,3.4,3.7,2.3,2.2
+EMP-042,2025-01-01,Research & Development,Research Scientist,2023-12-08,Active,7.3,3.6,3.7,3.8,3.8,1.8,0.2
+EMP-042,2025-02-01,Research & Development,Research Scientist,2023-12-08,Active,9.2,3.9,3.9,3.1,3.5,1.3,1.5
+EMP-042,2025-03-01,Research & Development,Research Scientist,2023-12-08,Active,6.9,4.0,3.6,3.5,3.6,1.8,2.9
+EMP-042,2025-04-01,Research & Development,Research Scientist,2023-12-08,Active,9.8,3.9,3.6,2.8,3.8,1.6,2.9
+EMP-042,2025-05-01,Research & Development,Research Scientist,2023-12-08,Active,7.5,3.8,3.5,3.4,3.8,2.0,2.5
+EMP-042,2025-06-01,Research & Development,Research Scientist,2023-12-08,Active,15.1,3.9,3.3,3.3,3.5,1.7,1.2
+EMP-043,2025-01-01,Research & Development,Research Scientist,2022-10-13,Active,14.9,4.3,4.2,3.9,3.2,2.7,2.5
+EMP-043,2025-02-01,Research & Development,Research Scientist,2022-10-13,Active,14.7,4.7,4.2,4.1,3.2,2.4,0.3
+EMP-043,2025-03-01,Research & Development,Research Scientist,2022-10-13,Active,14.2,4.7,4.3,4.0,3.3,2.2,0.9
+EMP-043,2025-04-01,Research & Development,Research Scientist,2022-10-13,Active,11.4,5.0,4.3,4.3,3.9,2.5,1.3
+EMP-043,2025-05-01,Research & Development,Research Scientist,2022-10-13,Active,10.3,4.7,4.0,4.3,3.5,2.7,2.0
+EMP-043,2025-06-01,Research & Development,Research Scientist,2022-10-13,Active,15.7,4.7,4.2,4.2,3.6,2.2,1.4
+EMP-044,2025-01-01,Research & Development,Research Scientist,2017-02-13,Active,7.4,,4.6,3.6,3.5,2.2,0.0
+EMP-044,2025-02-01,Research & Development,Research Scientist,2017-02-13,Active,3.5,3.6,4.1,3.7,3.6,2.1,0.9
+EMP-044,2025-03-01,Research & Development,Research Scientist,2017-02-13,Active,1.4,3.8,4.5,3.4,3.7,2.5,1.7
+EMP-044,2025-04-01,Research & Development,Research Scientist,2017-02-13,Active,6.8,4.0,3.8,4.3,3.4,2.6,0.9
+EMP-044,2025-05-01,Research & Development,Research Scientist,2017-02-13,Active,7.6,3.7,4.2,4.0,3.6,2.4,2.7
+EMP-044,2025-06-01,Research & Development,Research Scientist,2017-02-13,Active,4.9,3.3,3.9,3.5,3.7,2.7,3.8
+EMP-045,2025-01-01,Sales,Account Manager,2020-09-06,Active,11.7,4.1,5.0,2.8,3.0,2.5,2.1
+EMP-045,2025-02-01,Sales,Account Manager,2020-09-06,Active,4.6,4.2,4.6,2.6,3.4,1.7,1.5
+EMP-045,2025-03-01,Sales,Account Manager,2020-09-06,Active,8.7,4.5,5.0,3.3,3.7,2.2,2.6
+EMP-045,2025-04-01,Sales,Account Manager,2020-09-06,Active,6.2,4.5,4.8,3.2,3.5,1.9,0.8
+EMP-045,2025-05-01,Sales,Account Manager,2020-09-06,Active,6.6,4.4,5.0,3.1,3.2,2.2,1.6
+EMP-045,2025-06-01,Sales,Account Manager,2020-09-06,Active,7.9,4.7,4.9,3.4,3.5,2.4,0.0
+EMP-046,2025-01-01,Research & Development,Research Associate,2023-07-15,Active,7.3,3.9,3.3,3.6,3.2,1.9,1.6
+EMP-046,2025-02-01,Research & Development,Research Associate,2023-07-15,Active,7.3,4.3,2.9,2.8,2.6,2.6,1.7
+EMP-046,2025-03-01,Research & Development,Research Associate,2023-07-15,Active,9.5,4.1,3.0,3.4,3.1,2.6,3.3
+EMP-046,2025-04-01,Research & Development,Research Associate,2023-07-15,Active,10.0,4.2,3.0,2.8,2.5,2.0,2.8
+EMP-046,2025-05-01,Research & Development,Research Associate,2023-07-15,Active,4.8,3.7,3.0,3.5,2.9,2.3,4.1
+EMP-046,2025-06-01,Research & Development,Research Associate,2023-07-15,Active,9.3,4.0,3.3,3.4,3.0,2.2,3.1
+EMP-047,2025-01-01,Human Resources,HR Specialist,2023-01-21,Active,11.9,3.5,4.0,4.7,3.8,2.9,3.0
+EMP-047,2025-02-01,Human Resources,HR Specialist,2023-01-21,Active,11.8,4.2,3.9,4.4,3.0,3.6,2.6
+EMP-047,2025-03-01,Human Resources,HR Specialist,2023-01-21,Active,13.6,4.0,3.5,4.4,3.1,2.7,3.3
+EMP-047,2025-04-01,Human Resources,HR Specialist,2023-01-21,Active,10.6,3.3,3.6,4.4,3.3,3.2,5.3
+EMP-047,2025-05-01,Human Resources,HR Specialist,2023-01-21,Active,11.5,3.1,3.1,4.1,3.3,3.6,4.7
+EMP-047,2025-06-01,Human Resources,HR Specialist,2023-01-21,Active,16.1,3.2,3.1,4.1,2.9,3.7,4.2
+EMP-048,2025-01-01,Operations,Operations Manager,2022-06-09,Active,10.5,4.6,3.6,3.4,4.4,2.5,1.9
+EMP-048,2025-02-01,Operations,Operations Manager,2022-06-09,Active,8.1,4.4,3.4,3.3,3.9,2.4,0.3
+EMP-048,2025-03-01,Operations,Operations Manager,2022-06-09,Active,11.0,4.5,3.9,3.4,4.0,2.7,1.9
+EMP-048,2025-04-01,Operations,Operations Manager,2022-06-09,Active,9.2,4.5,3.3,2.9,4.2,3.2,2.0
+EMP-048,2025-05-01,Operations,Operations Manager,2022-06-09,Active,11.2,4.4,3.0,3.0,3.9,2.9,3.2
+EMP-048,2025-06-01,Operations,Operations Manager,2022-06-09,Active,11.4,4.1,3.2,3.4,3.6,3.4,4.8
+EMP-049,2025-01-01,Sales,Account Manager,2021-02-18,Active,6.2,4.2,4.5,4.8,3.9,1.1,1.2
+EMP-049,2025-02-01,Sales,Account Manager,2021-02-18,Active,3.1,4.2,4.4,4.6,4.1,1.2,0.7
+EMP-049,2025-03-01,Sales,Account Manager,2021-02-18,Active,5.1,4.2,4.2,4.8,4.1,1.6,1.0
+EMP-049,2025-04-01,Sales,Account Manager,2021-02-18,Active,10.2,4.0,3.9,4.5,3.8,1.9,1.5
+EMP-049,2025-05-01,Sales,Account Manager,2021-02-18,Active,10.2,4.6,3.9,4.7,3.9,1.7,1.1
+EMP-049,2025-06-01,Sales,Account Manager,2021-02-18,Active,6.8,3.9,3.7,4.7,3.9,1.6,4.2
+EMP-050,2025-01-01,Sales,Sales Executive,2023-05-22,Active,13.4,3.2,3.0,4.5,3.8,2.0,1.7
+EMP-050,2025-02-01,Sales,Sales Executive,2023-05-22,Active,7.2,3.6,3.3,4.9,3.7,1.5,1.0
+EMP-050,2025-03-01,Sales,Sales Executive,2023-05-22,Active,7.4,3.1,3.1,4.6,3.5,1.3,0.9
+EMP-050,2025-04-01,Sales,Sales Executive,2023-05-22,Active,9.9,3.5,3.7,4.5,3.6,1.9,1.1
+EMP-050,2025-05-01,Sales,Sales Executive,2023-05-22,Active,13.5,3.8,3.6,4.8,3.8,1.6,1.1
+EMP-050,2025-06-01,Sales,Sales Executive,2023-05-22,Active,14.0,3.8,3.3,5.0,3.9,1.1,3.9
+EMP-051,2025-01-01,Research & Development,Research Scientist,2020-03-09,Active,1.9,4.1,4.0,3.5,2.9,3.3,3.9
+EMP-051,2025-02-01,Research & Development,Research Scientist,2020-03-09,Active,2.4,,4.2,4.1,2.8,3.1,3.3
+EMP-051,2025-03-01,Research & Development,Research Scientist,2020-03-09,Active,7.4,4.6,3.8,3.7,3.4,2.7,3.0
+EMP-051,2025-04-01,Research & Development,Research Scientist,2020-03-09,Active,3.7,4.6,4.2,3.9,3.7,2.3,3.1
+EMP-051,2025-05-01,Research & Development,Research Scientist,2020-03-09,Active,3.8,5.0,4.1,4.1,2.7,2.4,2.2
+EMP-051,2025-06-01,Research & Development,Research Scientist,2020-03-09,Active,0.0,4.8,4.2,3.7,3.1,2.6,2.2
+EMP-052,2025-01-01,Sales,Account Manager,2022-02-05,Active,3.7,4.0,4.1,3.6,3.5,2.4,1.6
+EMP-052,2025-02-01,Sales,Account Manager,2022-02-05,Active,7.6,4.3,4.4,3.8,4.2,2.3,4.1
+EMP-052,2025-03-01,Sales,Account Manager,2022-02-05,Active,4.7,4.6,4.2,3.6,3.7,2.1,1.1
+EMP-052,2025-04-01,Sales,Account Manager,2022-02-05,Active,4.4,4.6,4.4,4.0,4.1,1.4,1.2
+EMP-052,2025-05-01,Sales,Account Manager,2022-02-05,Active,5.2,4.8,4.8,3.9,3.9,1.5,1.0
+EMP-052,2025-06-01,Sales,Account Manager,2022-02-05,Active,1.1,4.9,4.7,3.9,4.3,1.2,0.6
+EMP-053,2025-01-01,Operations,Operations Manager,2018-04-25,Active,1.3,4.6,3.8,4.0,3.6,1.0,2.1
+EMP-053,2025-02-01,Operations,Operations Manager,2018-04-25,Active,0.1,4.5,3.0,4.2,3.4,1.7,2.9
+EMP-053,2025-03-01,Operations,Operations Manager,2018-04-25,Active,3.7,4.5,3.5,3.8,3.3,1.5,2.5
+EMP-053,2025-04-01,Operations,Operations Manager,2018-04-25,Active,2.5,4.2,3.4,4.2,3.7,2.1,3.2
+EMP-053,2025-05-01,Operations,Operations Manager,2018-04-25,Active,2.6,4.2,3.0,4.0,3.3,1.3,2.5
+EMP-053,2025-06-01,Operations,Operations Manager,2018-04-25,Active,7.1,4.1,3.3,3.6,3.4,1.9,3.0
+EMP-054,2025-01-01,Finance,Accountant,2020-05-17,Active,4.2,4.0,3.7,3.9,4.2,2.5,1.8
+EMP-054,2025-02-01,Finance,Accountant,2020-05-17,Active,4.9,4.0,4.5,4.3,4.1,2.9,4.8
+EMP-054,2025-03-01,Finance,Accountant,2020-05-17,Active,6.9,4.0,4.6,4.5,3.7,3.0,2.3
+EMP-054,2025-04-01,Finance,Accountant,2020-05-17,Active,8.3,3.7,4.2,4.2,4.6,3.2,2.4
+EMP-054,2025-05-01,Finance,Accountant,2020-05-17,Active,4.6,3.7,4.0,4.5,3.9,2.8,3.3
+EMP-054,2025-06-01,Finance,Accountant,2020-05-17,Active,10.9,4.1,3.8,4.3,3.8,2.8,2.9
+EMP-055,2025-01-01,Research & Development,Research Associate,2017-02-26,Active,2.2,3.8,4.1,4.9,2.9,2.9,0.8
+EMP-055,2025-02-01,Research & Development,Research Associate,2017-02-26,Active,11.4,3.6,4.0,4.9,3.4,3.1,2.3
+EMP-055,2025-03-01,Research & Development,Research Associate,2017-02-26,Active,13.4,3.5,3.3,4.4,2.9,3.1,2.1
+EMP-055,2025-04-01,Research & Development,Research Associate,2017-02-26,Active,8.0,3.4,3.6,4.5,3.2,3.4,2.9
+EMP-055,2025-05-01,Research & Development,Research Associate,2017-02-26,Active,10.5,3.4,3.5,4.3,2.9,3.1,4.4
+EMP-055,2025-06-01,Research & Development,Research Associate,2017-02-26,Active,14.9,,3.1,4.5,2.6,3.6,3.1
+EMP-056,2025-01-01,Human Resources,HR Specialist,2020-10-02,Active,13.2,3.4,3.7,3.5,4.3,1.5,1.5
+EMP-056,2025-02-01,Human Resources,HR Specialist,2020-10-02,Active,9.3,3.6,3.6,3.4,4.4,1.5,3.4
+EMP-056,2025-03-01,Human Resources,HR Specialist,2020-10-02,Active,13.2,3.9,3.4,3.3,4.7,1.0,1.6
+EMP-056,2025-04-01,Human Resources,HR Specialist,2020-10-02,Active,10.5,4.0,3.6,3.8,4.6,1.0,3.2
+EMP-056,2025-05-01,Human Resources,HR Specialist,2020-10-02,Active,11.8,3.8,4.0,3.9,4.9,1.2,1.7
+EMP-056,2025-06-01,Human Resources,HR Specialist,2020-10-02,Active,16.0,4.3,4.1,3.9,4.5,1.0,1.9
+EMP-057,2025-01-01,Research & Development,Research Associate,2020-09-14,Active,0.8,3.7,4.0,4.1,3.5,2.5,3.1
+EMP-057,2025-02-01,Research & Development,Research Associate,2020-09-14,Active,8.9,3.3,4.5,3.6,3.8,2.2,2.5
+EMP-057,2025-03-01,Research & Development,Research Associate,2020-09-14,Active,8.2,3.5,4.0,3.4,3.2,2.8,1.0
+EMP-057,2025-04-01,Research & Development,Research Associate,2020-09-14,Active,10.3,3.7,4.0,3.3,3.9,2.6,1.8
+EMP-057,2025-05-01,Research & Development,Research Associate,2020-09-14,Active,4.8,3.8,4.3,3.8,3.5,2.6,0.4
+EMP-057,2025-06-01,Research & Development,Research Associate,2020-09-14,Active,3.6,3.7,3.8,3.2,4.1,2.6,1.4
+EMP-058,2025-01-01,Engineering,Software Engineer,2018-07-15,Active,4.1,3.4,4.7,3.9,4.1,2.6,1.0
+EMP-058,2025-02-01,Engineering,Software Engineer,2018-07-15,Active,5.1,3.2,4.3,3.4,4.0,2.3,1.4
+EMP-058,2025-03-01,Engineering,Software Engineer,2018-07-15,Active,3.8,2.7,4.3,3.8,3.9,3.0,1.3
+EMP-058,2025-04-01,Engineering,Software Engineer,2018-07-15,Active,7.2,3.1,4.4,3.1,4.2,2.6,4.2
+EMP-058,2025-05-01,Engineering,Software Engineer,2018-07-15,Active,5.1,2.9,4.0,3.0,4.4,2.8,1.8
+EMP-058,2025-06-01,Engineering,Software Engineer,2018-07-15,Active,6.9,2.9,4.1,3.1,3.8,3.3,2.1
+EMP-059,2025-01-01,Operations,Operations Manager,2019-12-09,Active,7.5,4.3,4.5,3.8,3.5,1.4,1.4
+EMP-059,2025-02-01,Operations,Operations Manager,2019-12-09,Active,6.9,4.3,4.6,3.8,3.6,1.0,3.4
+EMP-059,2025-03-01,Operations,Operations Manager,2019-12-09,Active,1.2,4.2,4.4,4.2,3.4,1.0,0.0
+EMP-059,2025-04-01,Operations,Operations Manager,2019-12-09,Active,8.4,5.0,4.5,3.5,3.9,1.0,0.3
+EMP-059,2025-05-01,Operations,Operations Manager,2019-12-09,Active,6.1,4.6,4.6,3.8,3.7,1.0,0.0
+EMP-059,2025-06-01,Operations,Operations Manager,2019-12-09,Active,6.2,4.6,4.9,3.9,4.1,1.0,1.5
+EMP-060,2025-01-01,Finance,Financial Analyst,2023-06-08,Active,12.2,3.4,,3.8,3.4,3.2,0.0
+EMP-060,2025-02-01,Finance,Financial Analyst,2023-06-08,Active,9.4,4.3,3.0,4.2,4.1,2.7,0.0
+EMP-060,2025-03-01,Finance,Financial Analyst,2023-06-08,Active,5.8,3.7,3.0,4.5,3.8,2.6,0.6
+EMP-060,2025-04-01,Finance,Financial Analyst,2023-06-08,Active,8.3,3.5,3.1,4.4,3.8,2.7,0.5
+EMP-060,2025-05-01,Finance,Financial Analyst,2023-06-08,Active,6.9,4.5,3.2,4.4,4.0,2.9,1.7
+EMP-060,2025-06-01,Finance,Financial Analyst,2023-06-08,Active,8.2,4.3,3.4,4.4,4.2,2.4,0.0
