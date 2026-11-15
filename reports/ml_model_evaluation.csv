@@ -1,0 +1,7 @@
+roc_auc,pr_auc,precision,recall,f1_score,brier_score,confusion_matrix,feature_set,algorithm
+0.5007,0.5059,0.451,0.697,0.5476,0.2683,"[[14, 28], [10, 23]]",Model_A_Static,logistic_regression
+0.5548,0.5347,0.4681,0.6667,0.55,0.2545,"[[17, 25], [11, 22]]",Model_A_Static,random_forest
+0.5267,0.4503,0.4615,0.5455,0.5,0.2965,"[[21, 21], [15, 18]]",Model_A_Static,xgboost
+0.6198,0.659,0.4857,0.5152,0.5,0.249,"[[24, 18], [16, 17]]",Model_B_Temporal,logistic_regression
+0.6089,0.6708,0.5556,0.4545,0.5,0.2247,"[[30, 12], [18, 15]]",Model_B_Temporal,random_forest
+0.6154,0.68,0.5484,0.5152,0.5312,0.2695,"[[28, 14], [16, 17]]",Model_B_Temporal,xgboost
