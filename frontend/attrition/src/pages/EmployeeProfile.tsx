@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import {
   User, ArrowLeft, Brain, TrendingDown, Clock,
-  Calendar, Briefcase, MapPin, Activity
+  Calendar, Briefcase, MapPin, Activity, Download,
+  Printer, FileText, FileSpreadsheet
 } from 'lucide-react'
 import api from '../api/client'
 import { Employee, MonthlySnapshot, PredictionResult, SurvivalResult } from '../types'
@@ -33,6 +34,14 @@ export default function EmployeeProfile() {
     })
   }, [empId])
 
+  const downloadReport = (format: 'md' | 'json' | 'csv') => {
+    window.open(`http://localhost:8000/api/v1/employees/${empId}/report/download?format=${format}`, '_blank')
+  }
+
+  const printDossier = () => {
+    window.print()
+  }
+
   if (loading) {
     return (
       <div className="p-8 flex items-center justify-center min-h-[60vh] text-sm text-slate-500">
@@ -48,10 +57,40 @@ export default function EmployeeProfile() {
   }
 
   return (
-    <div className="p-8 flex flex-col gap-6 max-w-6xl mx-auto">
-      <Link to="/employees" className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:underline">
-        <ArrowLeft size={14} /> Back to Employee Directory
-      </Link>
+    <div className="p-8 flex flex-col gap-6 max-w-6xl mx-auto print:p-0 print:max-w-full">
+      {/* Top Navigation & Action Buttons */}
+      <div className="flex items-center justify-between print:hidden">
+        <Link to="/employees" className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:underline">
+          <ArrowLeft size={14} /> Back to Employee Directory
+        </Link>
+
+        {/* Export & Download Controls */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => downloadReport('md')}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Download full executive report as Markdown"
+          >
+            <Download size={13} /> Download Dossier (.md)
+          </button>
+
+          <button
+            onClick={() => downloadReport('csv')}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-200 text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Download monthly telemetry history as CSV"
+          >
+            <FileSpreadsheet size={13} className="text-emerald-600 dark:text-emerald-400" /> Export CSV
+          </button>
+
+          <button
+            onClick={printDossier}
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-200 text-xs font-semibold rounded-lg shadow-xs transition-colors cursor-pointer"
+            title="Print or Save as PDF"
+          >
+            <Printer size={13} /> Print / Save PDF
+          </button>
+        </div>
+      </div>
 
       {/* Header Profile Bar */}
       <div className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -113,7 +152,7 @@ export default function EmployeeProfile() {
                     {exp.shap_value > 0 ? `+${exp.shap_value.toFixed(3)}` : exp.shap_value.toFixed(3)}
                   </span>
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                    exp.impact === 'Increases Risk' ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'
+                    exp.impact === 'Increases Risk' ? 'bg-red-100 text-red-700 dark:bg-red-950/60 dark:text-red-300' : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300'
                   }`}>
                     {exp.impact}
                   </span>
@@ -126,10 +165,22 @@ export default function EmployeeProfile() {
 
       {/* 12-Factor Monthly Snapshots Telemetry Table */}
       <div className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 rounded-xl p-6 shadow-sm">
-        <h2 className="text-sm font-bold text-slate-900 dark:text-white mb-1 flex items-center gap-1.5">
-          <Activity size={16} className="text-blue-600" /> Longitudinal Factor Observations
-        </h2>
-        <p className="text-xs text-slate-500 mb-4">Monthly telemetry across key organizational satisfaction, workload, and wellbeing factors.</p>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+              <Activity size={16} className="text-blue-600" /> Longitudinal Factor Observations
+            </h2>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Monthly telemetry across key organizational satisfaction, workload, and wellbeing factors.
+            </p>
+          </div>
+          <button
+            onClick={() => downloadReport('csv')}
+            className="flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium border border-slate-200 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-800 rounded text-slate-600 dark:text-gray-300 transition-colors cursor-pointer print:hidden"
+          >
+            <Download size={11} /> Download Table (.csv)
+          </button>
+        </div>
 
         {snapshots.length === 0 ? (
           <p className="text-xs text-slate-400">No monthly telemetry records currently populated for this employee.</p>
@@ -148,10 +199,10 @@ export default function EmployeeProfile() {
                   <th className="pb-3">FDI</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-gray-800 font-medium">
+              <tbody className="divide-y divide-slate-100 dark:divide-gray-800 font-medium font-mono text-slate-700 dark:text-gray-300">
                 {snapshots.map((s) => (
                   <tr key={s.id} className="hover:bg-slate-50/50 dark:hover:bg-gray-800/40">
-                    <td className="py-2.5 font-bold text-slate-700 dark:text-gray-300">{s.snapshot_month}</td>
+                    <td className="py-2.5 font-bold font-sans text-slate-800 dark:text-white">{s.snapshot_month}</td>
                     <td className="py-2.5">{s.job_satisfaction_score ?? '—'}</td>
                     <td className="py-2.5">{s.work_life_balance_score ?? '—'}</td>
                     <td className="py-2.5">{s.overtime_hours} hrs</td>
@@ -159,7 +210,7 @@ export default function EmployeeProfile() {
                     <td className="py-2.5">{s.stress_score ?? '—'}</td>
                     <td className="py-2.5">{s.absence_rate}%</td>
                     <td className="py-2.5">
-                      <span className={`font-mono text-xs ${Number(s.factor_deterioration_index) > 0 ? 'text-red-500 font-bold' : 'text-slate-500'}`}>
+                      <span className={`text-xs ${Number(s.factor_deterioration_index) > 0 ? 'text-red-500 font-bold' : 'text-slate-500'}`}>
                         {s.factor_deterioration_index != null ? s.factor_deterioration_index.toFixed(3) : '0.000'}
                       </span>
                     </td>

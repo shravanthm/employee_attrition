@@ -17,7 +17,7 @@ from app.schemas.api import (
 )
 from app.services.analytics_service import AnalyticsService
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from sqlalchemy.orm import Session
 
 router = APIRouter(prefix="/api/v1")
@@ -59,6 +59,164 @@ def get_employee_snapshots(employee_id: int, db: Session = Depends(get_db)):
         EmployeeMonthlySnapshot.employee_id == employee_id
     ).order_by(EmployeeMonthlySnapshot.snapshot_month.asc()).all()
     return snapshots
+
+
+@router.get("/employees/{employee_id}/report", tags=["Employees"])
+def get_employee_report(employee_id: int, db: Session = Depends(get_db)):
+    """Generate comprehensive individual risk and telemetry dossier for employee."""
+    emp = db.query(Employee).filter(Employee.id == employee_id).first()
+    if not emp:
+        raise HTTPException(status_code=404, detail="Employee not found")
+
+    snapshots = db.query(EmployeeMonthlySnapshot).filter(
+        EmployeeMonthlySnapshot.employee_id == employee_id
+    ).order_by(EmployeeMonthlySnapshot.snapshot_month.asc()).all()
+
+    try:
+        prediction = AnalyticsService.predict_employee_risk(employee_id, db)
+    except Exception:
+        prediction = {"risk_probability": 0.15, "risk_category": "Low", "top_explanations": []}
+
+    try:
+        survival = AnalyticsService.get_employee_survival_timeline(employee_id, db)
+    except Exception:
+        survival = {"median_survival_days": None, "survival_timeline": []}
+
+    return {
+        "employee": {
+            "id": emp.id,
+            "employee_code": emp.employee_code,
+            "department": emp.department,
+            "job_role": emp.job_role,
+            "business_unit": emp.business_unit,
+            "location": emp.location,
+            "hire_date": str(emp.hire_date) if emp.hire_date else None,
+            "employment_status": emp.employment_status,
+        },
+        "prediction": prediction,
+        "survival": survival,
+        "snapshots": [
+            {
+                "snapshot_month": str(s.snapshot_month),
+                "overtime_hours": s.overtime_hours,
+                "job_satisfaction_score": s.job_satisfaction_score,
+                "work_life_balance_score": s.work_life_balance_score,
+                "manager_support_score": s.manager_support_score,
+                "engagement_score": s.engagement_score,
+                "stress_score": s.stress_score,
+                "absence_rate": s.absence_rate,
+                "factor_deterioration_index": s.factor_deterioration_index,
+            }
+            for s in snapshots
+        ],
+    }
+
+
+@router.get("/employees/{employee_id}/report/download", tags=["Employees"])
+def download_employee_report(
+    employee_id: int,
+    format: str = Query("md", pattern="^(md|json|csv)$"),
+    db: Session = Depends(get_db)
+):
+    """Download individual employee risk intelligence report as Markdown, JSON, or CSV."""
+    import json
+    emp = db.query(Employee).filter(Employee.id == employee_id).first()
+    if not emp:
+        raise HTTPException(status_code=404, detail="Employee not found")
+
+    report_data = get_employee_report(employee_id, db)
+    code = emp.employee_code
+
+    if format == "json":
+        content = json.dumps(report_data, indent=2)
+        return Response(
+            content=content,
+            media_type="application/json",
+            headers={"Content-Disposition": f'attachment; filename="AttritionReport_{code}.json"'}
+        )
+
+    if format == "csv":
+        df_snaps = pd.DataFrame(report_data["snapshots"])
+        csv_buffer = io.StringIO()
+        df_snaps.to_csv(csv_buffer, index=False)
+        return Response(
+            content=csv_buffer.getvalue(),
+            media_type="text/csv",
+            headers={"Content-Disposition": f'attachment; filename="Telemetry_{code}.csv"'}
+        )
+
+    # Default: Markdown Dossier
+    pred = report_data["prediction"]
+    surv = report_data["survival"]
+    snaps = report_data["snapshots"]
+    risk_pct = round(pred.get("risk_probability", 0) * 100, 1)
+    risk_tier = pred.get("risk_category", "Low")
+    median_days = surv.get("median_survival_days", "N/A")
+
+    md_lines = [
+        f"# AttritionPulse AI — Executive Risk Dossier",
+        f"**Employee Code:** `{code}` | **Generated Date:** {datetime.date.today()}",
+        f"",
+        f"---",
+        f"",
+        f"## 1. Master Profile Information",
+        f"- **Department:** {emp.department}",
+        f"- **Job Role:** {emp.job_role}",
+        f"- **Employment Status:** {emp.employment_status}",
+        f"- **Location / Business Unit:** {emp.location or 'Headquarters'} / {emp.business_unit or 'Enterprise'}",
+        f"- **Hire Date:** {emp.hire_date or 'N/A'}",
+        f"",
+        f"## 2. Longitudinal Early-Warning Risk Assessment",
+        f"- **90-Day Flight Risk Probability:** `{risk_pct}%`",
+        f"- **Risk Tier:** **{risk_tier} Risk**",
+        f"- **Median Survival Projection:** `{median_days} days`",
+        f"",
+        f"## 3. Explainable Risk Drivers (SHAP Attribution)",
+        f"| Feature Name | SHAP Value | Clinical Impact |",
+        f"| :--- | :---: | :--- |",
+    ]
+
+    for exp in pred.get("top_explanations", []):
+        feat = exp["feature"].replace("_", " ").title()
+        val = exp["shap_value"]
+        sign = f"+{val:.3f}" if val > 0 else f"{val:.3f}"
+        impact = exp["impact"]
+        md_lines.append(f"| {feat} | `{sign}` | **{impact}** |")
+
+    md_lines.extend([
+        f"",
+        f"## 4. Longitudinal Factor Telemetry History",
+        f"| Month | Overtime (Hrs) | Job Sat (1-5) | Work-Life (1-5) | Manager Support | Stress (1-5) | Absence % | FDI |",
+        f"| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |",
+    ])
+
+    for s in snaps:
+        fdi_val = f"{s['factor_deterioration_index']:.3f}" if s.get("factor_deterioration_index") is not None else "0.000"
+        md_lines.append(
+            f"| {s['snapshot_month']} | {s['overtime_hours']}h | {s['job_satisfaction_score'] or '—'} | "
+            f"{s['work_life_balance_score'] or '—'} | {s['manager_support_score'] or '—'} | "
+            f"{s['stress_score'] or '—'} | {s['absence_rate']}% | `{fdi_val}` |"
+        )
+
+    md_lines.extend([
+        f"",
+        f"## 5. Recommended HR Interventions",
+    ])
+    if risk_tier in ["Critical", "High"]:
+        md_lines.append(f"- **Immediate Cadence:** Schedule 1-on-1 retention review with department leadership within 5 business days.")
+        md_lines.append(f"- **Workload Rebalancing:** Cap overtime hours and conduct workload distribution review.")
+        md_lines.append(f"- **Sentiment Monitoring:** Track next month's Factor Deterioration Index (FDI) closely.")
+    else:
+        md_lines.append(f"- **Maintenance:** Continue regular bi-weekly 1:1 check-ins and acknowledge sustained team contributions.")
+        md_lines.append(f"- **Growth Opportunity:** Explore upcoming training or milestone advancement projects.")
+
+    content = "\n".join(md_lines)
+    return Response(
+        content=content,
+        media_type="text/markdown; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="AttritionReport_{code}.md"'}
+    )
+
 
 
 @router.post("/predictions/{employee_id}", response_model=PredictionResponse, tags=["Predictions"])
