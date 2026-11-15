@@ -1,0 +1,38 @@
+"""Main FastAPI application entrypoint for AttritionPulse AI."""
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.core.config import settings
+from app.api.v1.endpoints import router as api_v1_router
+from app.db.session import engine, Base
+
+# Auto create tables on boot if not existing (e.g. SQLite fallback)
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI(
+    title="AttritionPulse AI API",
+    description="Longitudinal Employee Attrition Early-Warning & Explainable Risk Intelligence System",
+    version="2.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
+)
+
+# Explicit CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.CORS_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
+
+app.include_router(api_v1_router)
+
+@app.get("/", tags=["Health"])
+def health_check():
+    return {
+        "status": "online",
+        "service": "AttritionPulse AI API",
+        "environment": settings.ENVIRONMENT,
+        "version": "2.0.0"
+    }
